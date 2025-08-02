@@ -158,7 +158,7 @@ export default function Home() {
                         <Link href="/contact">
                             <button className="inline-flex items-center gap-2 px-6 h-12 border border-white text-gray-900 bg-white rounded-xl">
                                 <span>👋</span>
-                                <span className="font-semibold">Let's Connect</span>
+                                <span className="font-semibold">Let&apos;s Connect</span>
                             </button>
                         </Link>
                     </div>

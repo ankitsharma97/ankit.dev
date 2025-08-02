@@ -194,8 +194,8 @@ export const ContactSection = ({ id }: { id: string }) => {
                         <h3 className="font-serif text-2xl md:text-3xl mb-4">
                             Ready to Start Your Project?
                         </h3>
-                        <p className="text-lg mb-6 max-w-2xl mx-auto">
-                            Let's discuss your ideas and turn them into reality. I'm excited to collaborate on your next project!
+                                                    <p className="text-lg mb-6 max-w-2xl mx-auto">
+                                Let&apos;s discuss your ideas and turn them into reality. I&apos;m excited to collaborate on your next project!
                             </p>
                         <a href={`mailto:${email}`}>
                             <button className="bg-gray-900 text-white inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition-colors">

@@ -41,7 +41,7 @@ export const TestimonialsCarousel = () => {
                             className="w-16 h-16 rounded-full mx-auto mb-4 border-2 border-emerald-300"
                         />
                         <blockquote className="text-lg text-white/80 italic mb-4 max-w-3xl mx-auto">
-                            "{testimonials[currentIndex].text}"
+                            &ldquo;{testimonials[currentIndex].text}&rdquo;
                         </blockquote>
                         <div>
                             <h4 className="font-semibold text-white text-lg">
