@@ -1,5 +1,5 @@
 import { Dispatch, MouseEvent, SetStateAction, useEffect, useCallback, useMemo, useRef } from "react";
-import { aboutSectionId, heroSectionId, projectsSectionId, testimonialsSectionId, experienceSectionId, profilesSectionId, skillsSectionId } from "./constants";
+import { aboutSectionId, heroSectionId, projectsSectionId, testimonialsSectionId, experienceSectionId, skillsSectionId } from "./constants";
 import { twMerge } from "tailwind-merge";
 
 export const Header = ({
@@ -16,7 +16,7 @@ export const Header = ({
     const clickTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     // Memoize the section ids array to avoid recreating it on each render
-    const sectionIds = useMemo(() => [heroSectionId, projectsSectionId, skillsSectionId, experienceSectionId, profilesSectionId, testimonialsSectionId, aboutSectionId], []);
+    const sectionIds = useMemo(() => [heroSectionId, projectsSectionId, skillsSectionId, experienceSectionId, testimonialsSectionId, aboutSectionId], []);
 
     const scrollToSection = useCallback(
         (sectionId: string) => {
@@ -129,7 +129,6 @@ export const Header = ({
                         [projectsSectionId]: "Projects",
                         [skillsSectionId]: "Skills",
                         [experienceSectionId]: "Experience",
-                        [profilesSectionId]: "Profiles",
                         [testimonialsSectionId]: "Impressions",
                         [aboutSectionId]: "About",
                     };
