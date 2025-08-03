@@ -118,11 +118,11 @@ export const AboutSection = ({ id }: { id: string }) => {
                                 >
                                     <Card className="p-6 md:p-8 h-full group-hover:shadow-lg group-hover:shadow-emerald-300/10 transition-all duration-300 hover:bg-white/3">
                                         <div className="flex flex-col items-center text-center h-full">
-                                            <div className="w-16 h-16 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center mb-4 overflow-hidden group-hover:scale-105 transition-all duration-300">
+                                            <div className="w-48 h-32 rounded-lg bg-gradient-to-r from-emerald-300 to-sky-400 flex items-center justify-center mb-4 overflow-hidden group-hover:scale-105 transition-all duration-300">
                                                 <Image
                                                     src={profile.image}
                                                     alt={profile.name}
-                                                    className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease-out"
+                                                    className="w-full h-full  object-fit rounded-lg group-hover:scale-110 transition-all duration-300 ease-out"
                                                 />
                                             </div>
                                             <h3 className="font-serif text-xl md:text-2xl text-white mb-2 group-hover:text-emerald-200 transition-colors duration-300">
