@@ -10,7 +10,7 @@ import { contactSectionId, projectsSectionId } from "./constants";
 
 export const HeroSection = ({ id }: { id: string }) => {
     return (
-        <section className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip" id={id}>
+        <section className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-hidden" id={id}>
             <div
                 className="absolute inset-0"
                 style={{

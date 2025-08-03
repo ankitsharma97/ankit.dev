@@ -16,7 +16,7 @@ const words = [
 
 export const TapeSection = () => {
     return (
-        <div className="py-16 lg:py-24 overflow-x-clip">
+                    <div className="py-16 lg:py-24 overflow-x-hidden">
             <div className="bg-gradient-to-r from-emerald-300 to-sky-400 py-3 -rotate-3 -mx-1">
                 <div
                     className="flex"

@@ -24,7 +24,7 @@ export const TestimonialsCarousel = () => {
     };
 
     return (
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden overflow-x-hidden">
             <AnimatePresence mode="wait">
                 <motion.div
                     key={currentIndex}

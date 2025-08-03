@@ -72,7 +72,7 @@ export const ProjectsSection = ({ id }: { id: string }) => {
     const filteredProjects = projectCategories.find(cat => cat.name === activeFilter)?.filter() || portfolioProjects;
 
     return (
-        <section className="pb-16 lg:py-24" id={id}>
+        <section className="pb-16 lg:py-24 overflow-x-hidden" id={id}>
             <div className="container">
                 <SectionHeader
                     heading1="Real-world Results"

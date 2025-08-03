@@ -178,7 +178,7 @@ export default function Home() {
             </section>
 
             {/* Quick Stats */}
-            <section className="py-16">
+            <section className="py-16 overflow-x-hidden">
                 <div className="container">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         <motion.div
@@ -226,7 +226,7 @@ export default function Home() {
             </section>
 
             {/* Projects Preview */}
-            <section className="py-20">
+            <section className="py-20 overflow-x-hidden">
                 <div className="container">
                     <div className="text-center mb-12">
                         <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">Featured Projects</h2>
@@ -333,7 +333,7 @@ export default function Home() {
             </section>
 
             {/* Skills Preview */}
-            <section className="py-20">
+            <section className="py-20 overflow-x-hidden">
                 <div className="container">
                     <div className="text-center mb-12">
                         <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">Technical Skills</h2>
@@ -385,7 +385,7 @@ export default function Home() {
             </section>
 
             {/* Experience Preview */}
-            <section className="py-20">
+            <section className="py-20 overflow-x-hidden">
                 <div className="container">
                     <div className="text-center mb-12">
                         <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">Professional Experience</h2>
@@ -459,7 +459,7 @@ export default function Home() {
 
 
             {/* Navigation to Full Sections */}
-            <section className="py-20">
+            <section className="py-20 overflow-x-hidden">
                 <div className="container">
                     <div className="text-center mb-12">
                         <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">Explore More</h2>

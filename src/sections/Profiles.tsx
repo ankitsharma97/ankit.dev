@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export const ProfilesSection = ({ id }: { id: string }) => {
     return (
-        <section className="py-20 md:py-14 lg:py-20" id={id}>
+        <section className="py-20 md:py-14 lg:py-20 overflow-x-hidden" id={id}>
             <div className="container">
                 <SectionHeader
                     heading1="Profiles"
