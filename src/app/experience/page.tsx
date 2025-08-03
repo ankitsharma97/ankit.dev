@@ -1,5 +1,6 @@
 "use client";
 import { ExperienceSection } from "@/sections/Experience";
+import { CertificationsSection } from "@/sections/Certifications";
 import { experienceSectionId } from "@/sections/constants";
 import { Navigation } from "@/components/Navigation";
 
@@ -10,6 +11,7 @@ export default function ExperiencePage() {
             {/* Main Content */}
             <div className="pt-20">
                 <ExperienceSection id={experienceSectionId} />
+                <CertificationsSection id="certifications" />
             </div>
         </div>
     );

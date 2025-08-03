@@ -11,7 +11,6 @@ export const Navigation = () => {
         { href: "/projects", label: "Projects", icon: "fas fa-code" },
         { href: "/skills", label: "Skills", icon: "fas fa-brain" },
         { href: "/experience", label: "Experience", icon: "fas fa-briefcase" },
-        { href: "/profiles", label: "Profiles", icon: "fas fa-users" },
         { href: "/about", label: "About", icon: "fas fa-user" },
         { href: "/contact", label: "Contact", icon: "fas fa-envelope" },
     ];
@@ -82,8 +81,6 @@ export const Navigation = () => {
                     })}
                 </nav>
 
-                {/* Right side - Empty for balance */}
-                <div className="w-32"></div>
             </div>
         </>
     );

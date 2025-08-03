@@ -5,11 +5,12 @@ import Image from "next/image";
 import bookImage from "@/assets/images/srimad-bhagavad-gita-cover.webp";
 import mapImage from "@/assets/images/map.png";
 import smileMemoji from "@/assets/images/memoji-smile.png";
+import bookCoverImage from "@/assets/images/book-cover.png";
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItemsRow } from "@/components/ToolboxItemsRow";
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import { hobbies, toolBoxItems } from "../../profile.config";
+import { hobbies, toolBoxItems, profilesData } from "../../profile.config";
 
 export const AboutSection = ({ id }: { id: string }) => {
     const constraintRef = useRef(null);
@@ -92,6 +93,61 @@ export const AboutSection = ({ id }: { id: string }) => {
                                 <Image src={smileMemoji} alt="Smile Memoji" className="size-20" />
                             </div>
                         </Card>
+                    </div>
+                    
+                    {/* Profiles Section */}
+                    <div className="mt-20">
+                        <SectionHeader
+                            heading1="Digital Presence"
+                            heading2="Connect With Me"
+                            paragraph="Find me on various platforms where I showcase my work, skills, and professional journey."
+                        />
+                        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {profilesData.map((profile, index) => (
+                                <motion.div
+                                    key={profile.name}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    viewport={{ once: true }}
+                                    whileHover={{ 
+                                        y: -3,
+                                        scale: 1.02
+                                    }}
+                                    className="group cursor-pointer"
+                                >
+                                    <Card className="p-6 md:p-8 h-full group-hover:shadow-lg group-hover:shadow-emerald-300/10 transition-all duration-300 hover:bg-white/3">
+                                        <div className="flex flex-col items-center text-center h-full">
+                                            <div className="w-16 h-16 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center mb-4 overflow-hidden group-hover:scale-105 transition-all duration-300">
+                                                <Image
+                                                    src={profile.image}
+                                                    alt={profile.name}
+                                                    className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease-out"
+                                                />
+                                            </div>
+                                            <h3 className="font-serif text-xl md:text-2xl text-white mb-2 group-hover:text-emerald-200 transition-colors duration-300">
+                                                {profile.name}
+                                            </h3>
+                                            <p className="text-white/70 mb-6 flex-1 group-hover:text-white/80 transition-colors duration-300">
+                                                {profile.description}
+                                            </p>
+                                            <a
+                                                href={profile.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-950 rounded-xl font-semibold hover:bg-white/90 transition-all duration-300 group-hover:scale-105 relative overflow-hidden"
+                                            >
+                                                <div className="absolute inset-0 bg-gradient-to-r from-emerald-300/0 via-emerald-300/0 to-emerald-300/0 group-hover:from-emerald-300/10 group-hover:via-emerald-300/20 group-hover:to-emerald-300/10 transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                                                <span className="relative z-10">Visit Profile</span>
+                                                <svg className="w-4 h-4 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </Card>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>

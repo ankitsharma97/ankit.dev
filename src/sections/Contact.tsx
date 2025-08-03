@@ -167,10 +167,11 @@ export const ContactSection = ({ id }: { id: string }) => {
                                 
                                 <button
                                     type="submit"
-                                    className="w-full bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-950 px-6 py-3 rounded-lg font-semibold hover:from-emerald-200 hover:to-sky-300 transition-all duration-200 flex items-center justify-center gap-2"
+                                    className="w-full bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-950 px-6 py-3 rounded-lg font-semibold hover:from-emerald-200 hover:to-sky-300 transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/30 relative overflow-hidden group"
                                 >
-                                    <span>Send Message</span>
-                                    <ArrowUpRightIcon className="size-4" />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/0 to-white/0 group-hover:from-white/10 group-hover:via-white/20 group-hover:to-white/10 transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                                    <span className="relative z-10">Send Message</span>
+                                    <ArrowUpRightIcon className="size-4 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                                 </button>
                             </form>
                         </Card>
@@ -198,9 +199,10 @@ export const ContactSection = ({ id }: { id: string }) => {
                                 Let&apos;s discuss your ideas and turn them into reality. I&apos;m excited to collaborate on your next project!
                             </p>
                         <a href={`mailto:${email}`}>
-                            <button className="bg-gray-900 text-white inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition-colors">
-                                <span>Get Started Today</span>
-                                <ArrowUpRightIcon className="size-4" />
+                            <button className="bg-gray-900 text-white inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/30 relative overflow-hidden group">
+                                <div className="absolute inset-0 bg-gradient-to-r from-emerald-300/0 via-emerald-300/0 to-emerald-300/0 group-hover:from-emerald-300/10 group-hover:via-emerald-300/20 group-hover:to-emerald-300/10 transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                                <span className="relative z-10">Get Started Today</span>
+                                <ArrowUpRightIcon className="size-4 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                             </button>
                         </a>
                     </div>

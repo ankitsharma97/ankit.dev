@@ -1,4 +1,5 @@
 import memojiImage from "@/assets/images/memoji-computer.png";
+import heroImage from "@/assets/images/HERO.jpeg";
 import Image from "next/image";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
 import grainImage from "@/assets/images/grain.jpg";
@@ -99,12 +100,21 @@ export const HeroSection = ({ id }: { id: string }) => {
             </div>
             <div className="container relative z-10">
                 <div className="flex flex-col justify-center items-center">
-                    <Image src={memojiImage} className="size-[100px]" alt="Person peeking from behind laptop" />
-                    <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-3.5">
-                        <div className="bg-green-500 size-2.5 rounded-full relative z-0">
-                            <div className="absolute inset-0 bg-green-500 rounded-full animate-ping -z-10"></div>
+                    <div className="relative mb-6">
+                        {/* Professional Photo */}
+                        <div className="relative">
+                            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-emerald-300/20 shadow-2xl shadow-emerald-300/10 group hover:border-emerald-300/40 transition-all duration-500">
+                                <Image 
+                                    src={heroImage} 
+                                    alt="Professional headshot" 
+                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    priority
+                                />
+                            </div>
+                            {/* Animated ring around the photo */}
+                            <div className="absolute inset-0 rounded-full border-2 border-emerald-300/30 animate-ping"></div>
+                            <div className="absolute inset-0 rounded-full border-2 border-emerald-300/20 animate-pulse"></div>
                         </div>
-                        <div className="text-sm font-medium">Available for new projects</div>
                     </div>
                 </div>
                 <div className="max-w-lg mx-auto">
@@ -118,15 +128,17 @@ export const HeroSection = ({ id }: { id: string }) => {
                 </div>
                 <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
                     <a href={"#" + projectsSectionId}>
-                        <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
-                            <span className="font-semibold">Explore My Work</span>
-                            <ArrowDown className="size-4" />
+                        <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:bg-white/10 hover:border-emerald-300/50 transition-all duration-300 group relative overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-r from-emerald-300/0 via-emerald-300/0 to-emerald-300/0 hover:from-emerald-300/10 hover:via-emerald-300/20 hover:to-emerald-300/10 transition-all duration-500 transform -translate-x-full hover:translate-x-0"></div>
+                            <span className="font-semibold relative z-10 hover:text-emerald-300 transition-colors duration-300">Explore My Work</span>
+                            <ArrowDown className="size-4 relative z-10 hover:translate-y-1 transition-transform duration-300" />
                         </button>
                     </a>
                     <a href={"#" + contactSectionId}>
-                        <button className="inline-flex items-center gap-2 px-6 h-12 border border-white text-gray-900 bg-white rounded-xl">
-                            <span>👋</span>
-                            <span className="font-semibold">Let&apos;s Connect</span>
+                        <button className="inline-flex items-center gap-2 px-6 h-12 border border-white text-gray-900 bg-white rounded-xl hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/30 transition-all duration-300 relative overflow-hidden group">
+                            <div className="absolute inset-0 bg-gradient-to-r from-emerald-300/0 via-emerald-300/0 to-emerald-300/0 group-hover:from-emerald-300/10 group-hover:via-emerald-300/20 group-hover:to-emerald-300/10 transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                            <span className="relative z-10">👋</span>
+                            <span className="font-semibold relative z-10 group-hover:text-emerald-700 transition-colors duration-300">Let&apos;s Connect</span>
                         </button>
                     </a>
                 </div>

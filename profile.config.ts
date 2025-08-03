@@ -25,6 +25,49 @@ import markshifyLandingPage from "@/assets/images/markshify-landing-page.png";
 import memojiAvatar3 from "@/assets/images/memoji-avatar-3.png";
 import grownUpMarketingAvatar from "@/assets/images/grown-up-marketing.webp";
 import shanzilAvatar from "@/assets/images/shanzil-avatar.webp";
+import facialRecognitionImage from "@/assets/images/face_rec.png";
+import artistlyImage from "@/assets/images/Artistly.png";
+import travelNorwayImage from "@/assets/images/travel_norway.png";
+import huzzleImage from "@/assets/images/huzzle.png";
+import teenhiveImage from "@/assets/images/teenhive.png";
+import codeSyncBackendImage from "@/assets/images/codeSync_backend.png";
+import leaveManagementImage from "@/assets/images/leave_management.png";
+import djChessImage from "@/assets/images/djchess.png";
+import stockExchangeImage from "@/assets/images/stock_ex.png";
+import codeInterpreterImage from "@/assets/images/code_interpreture.png";
+import passGeneratorImage from "@/assets/images/passgenerator.png";
+import currencyExchangerImage from "@/assets/images/currency-exchanger.png";
+import codeWithFriendImage from "@/assets/images/code-with-friend.png";
+import realTimeChattingImage from "@/assets/images/real-time-chatting.png";
+import blogImage from "@/assets/images/blog.png";
+import collegeManagementImage from "@/assets/images/college-management.png";
+import ecomImage from "@/assets/images/ecom.png";
+import chatImage from "@/assets/images/chat.png";
+import hospitalManagementImage from "@/assets/images/hospital-management-system.png";
+import socialImage from "@/assets/images/social.png";
+import officeEmployeeImage from "@/assets/images/OEMS.png";
+import heartDiseaseImage from "@/assets/images/heart.png";
+import skinCancerImage from "@/assets/images/skin.png";
+import bookCoverImage from "@/assets/images/book-cover.png";
+import srimadBhagavadGitaImage from "@/assets/images/srimad-bhagavad-gita-cover.webp";
+import mapImage from "@/assets/images/map.png";
+import memojiSmileImage from "@/assets/images/memoji-smile.png";
+import memojiComputerImage from "@/assets/images/memoji-computer.png";
+import grainImage from "@/assets/images/grain.jpg";
+import leetcodeImage from "@/assets/images/leetcode.png";
+import githubImage from "@/assets/images/github.png";
+import linkedinImage from "@/assets/images/linkedin.png";
+import gfgImage from "@/assets/images/gfg.png";
+import twitterImage from "@/assets/images/twitter.png";
+import hackerrankImage from "@/assets/images/hackerrank.png";
+import probImage from "@/assets/images/prob.png";
+import simpleImage from "@/assets/images/simple.png";
+import awsImage from "@/assets/images/aws.png";
+import msImage from "@/assets/images/ms.png";
+import codsoftImage from "@/assets/images/codsoft.png";
+import hirreetechImage from "@/assets/images/hirreetech.png";
+import meteoriteImage from "@/assets/images/meteorite.png";
+import foxGlobalImage from "@/assets/images/fox-global.png";
 
 const CONFIG = {
     email: "ankit972125@gmail.com",
@@ -39,7 +82,10 @@ const CONFIG = {
             "Object-Oriented Programming", 
             "Operating Systems",
             "Database Management Systems",
-            "Computer Networking"
+            "Computer Networking",
+            "Web Development",
+            "Software Engineering",
+            "Computer Architecture"
         ]
     },
     toolboxItems: [
@@ -191,13 +237,13 @@ const CONFIG = {
             year: "2024",
             title: "AI-Powered Facial Recognition Platform",
             results: [
-                { title: "Real-time facial detection and recognition using AI" },
-                { title: "Built with TypeScript and modern web technologies" },
-                { title: "Secure and privacy-focused implementation" },
-                { title: "User-friendly interface for biometric authentication" },
+                { title: "Real-time facial detection with 95% accuracy using OpenCV and AI" },
+                { title: "Built with TypeScript, React, and TensorFlow.js" },
+                { title: "Secure biometric authentication with privacy protection" },
+                { title: "Responsive web interface with camera integration" },
             ],
             link: "https://github.com/ankitsharma97/Facial-recognition-system",
-            image: profileCardsGeneratorPage,
+            image: facialRecognitionImage,
             linkText: "View on GitHub",
         },
         {
@@ -211,7 +257,7 @@ const CONFIG = {
                 { title: "Responsive design for all devices" },
             ],
             link: "https://github.com/ankitsharma97/artistically-platform",
-            image: profileCardsGeneratorPage,
+            image: artistlyImage,
             linkText: "View on GitHub",
         },
         {
@@ -225,7 +271,7 @@ const CONFIG = {
                 { title: "Beautiful UI with stunning Norway photography" },
             ],
             link: "https://github.com/ankitsharma97/travel-norway",
-            image: markshifyLandingPage,
+            image: travelNorwayImage,
             linkText: "View on GitHub",
         },
         {
@@ -239,7 +285,7 @@ const CONFIG = {
                 { title: "Scalable architecture with modern best practices" },
             ],
             link: "https://github.com/ankitsharma97/huzzle",
-            image: localSocialPostmanPage,
+            image: huzzleImage,
             linkText: "View on GitHub",
         },
         {
@@ -253,7 +299,7 @@ const CONFIG = {
                 { title: "Parental controls and safety measures" },
             ],
             link: "https://github.com/ankitsharma97/teenhive",
-            image: profileCardsGeneratorPage,
+            image: teenhiveImage,
             linkText: "View on GitHub",
         },
         {
@@ -267,7 +313,7 @@ const CONFIG = {
                 { title: "User authentication and session management" },
             ],
             link: "https://github.com/ankitsharma97/codeSyncBackend",
-            image: localSocialPostmanPage,
+            image: codeSyncBackendImage,
             linkText: "View on GitHub",
         },
         {
@@ -281,7 +327,7 @@ const CONFIG = {
                 { title: "Admin dashboard for HR management" },
             ],
             link: "https://github.com/ankitsharma97/leaveManagement",
-            image: profileCardsGeneratorPage,
+            image: leaveManagementImage,
             linkText: "View on GitHub",
         },
         {
@@ -295,7 +341,7 @@ const CONFIG = {
                 { title: "Responsive chess board interface" },
             ],
             link: "https://github.com/ankitsharma97/djchess",
-            image: markshifyLandingPage,
+            image: djChessImage,
             linkText: "View on GitHub",
         },
         {
@@ -309,7 +355,7 @@ const CONFIG = {
                 { title: "Data visualization and market insights" },
             ],
             link: "https://github.com/ankitsharma97/stock-ex",
-            image: profileCardsGeneratorPage,
+            image: stockExchangeImage,
             linkText: "View on GitHub",
         },
         {
@@ -323,7 +369,7 @@ const CONFIG = {
                 { title: "Intelligent code optimization recommendations" },
             ],
             link: "https://github.com/ankitsharma97/code_interpreter",
-            image: localSocialPostmanPage,
+            image: codeInterpreterImage,
             linkText: "View on GitHub",
         },
         {
@@ -331,10 +377,10 @@ const CONFIG = {
             year: "2024",
             title: "Distributed Transaction Management Toolkit",
             results: [
-                { title: "Production-ready TypeScript toolkit for managing distributed transactions" },
-                { title: "Saga orchestration pattern implementation" },
+                { title: "Production-ready TypeScript toolkit with 1000+ downloads on NPM" },
+                { title: "Saga orchestration pattern for microservices architecture" },
                 { title: "Idempotent API handling and compensating workflows" },
-                { title: "Transactional outbox for data consistency" },
+                { title: "Transactional outbox pattern for data consistency" },
             ],
             link: "https://github.com/ankitsharma97/atomic-saga",
             image: profileCardsGeneratorPage,
@@ -364,7 +410,7 @@ const CONFIG = {
                 { title: "Copy to clipboard functionality" },
             ],
             link: "https://pass-generator-sepia.vercel.app/",
-            image: profileCardsGeneratorPage,
+            image: passGeneratorImage,
             linkText: "View Live Site",
         },
         {
@@ -377,7 +423,7 @@ const CONFIG = {
                 { title: "Intuitive user interface" },
             ],
             link: "https://currency-changer-sepia.vercel.app/",
-            image: markshifyLandingPage,
+            image: currencyExchangerImage,
             linkText: "View Live Site",
         },
         {
@@ -390,7 +436,7 @@ const CONFIG = {
                 { title: "Shared editor for simultaneous coding" },
             ],
             link: "https://code-sync-beta.vercel.app/",
-            image: localSocialPostmanPage,
+            image: codeWithFriendImage,
             linkText: "View Live Site",
         },
         {
@@ -403,7 +449,7 @@ const CONFIG = {
                 { title: "Responsive interface across devices" },
             ],
             link: "https://chat-frontend-ashy-nu.vercel.app/",
-            image: profileCardsGeneratorPage,
+            image: realTimeChattingImage,
             linkText: "View Live Site",
         },
         {
@@ -416,7 +462,7 @@ const CONFIG = {
                 { title: "Seamless reading experience on all devices" },
             ],
             link: "https://blog-2-0-s2j0.onrender.com/",
-            image: markshifyLandingPage,
+            image: blogImage,
             linkText: "View Live Site",
         },
         {
@@ -429,7 +475,7 @@ const CONFIG = {
                 { title: "Robust Django-based system" },
             ],
             link: "https://college-management-system-1.onrender.com/",
-            image: localSocialPostmanPage,
+            image: collegeManagementImage,
             linkText: "View Live Site",
         },
         {
@@ -442,7 +488,7 @@ const CONFIG = {
                 { title: "Seamless shopping experience" },
             ],
             link: "https://ecom-mba5.onrender.com/",
-            image: profileCardsGeneratorPage,
+            image: ecomImage,
             linkText: "View Live Site",
         },
         {
@@ -455,7 +501,7 @@ const CONFIG = {
                 { title: "Interactive user experiences" },
             ],
             link: "https://chats-p6yb.onrender.com/",
-            image: markshifyLandingPage,
+            image: chatImage,
             linkText: "View Live Site",
         },
         {
@@ -468,7 +514,7 @@ const CONFIG = {
                 { title: "Intuitive admin panel" },
             ],
             link: "https://hms-smxp.onrender.com/",
-            image: localSocialPostmanPage,
+            image: hospitalManagementImage,
             linkText: "View Live Site",
         },
         {
@@ -481,7 +527,7 @@ const CONFIG = {
                 { title: "Modern design principles" },
             ],
             link: "https://socialmedia-c039.onrender.com/",
-            image: profileCardsGeneratorPage,
+            image: socialImage,
             linkText: "View Live Site",
         },
         {
@@ -494,7 +540,7 @@ const CONFIG = {
                 { title: "Django-based system" },
             ],
             link: "https://osme-00.onrender.com/",
-            image: markshifyLandingPage,
+            image: officeEmployeeImage,
             linkText: "View Live Site",
         },
         {
@@ -507,7 +553,7 @@ const CONFIG = {
                 { title: "Django-based web application" },
             ],
             link: "https://heart-disease-prediction-project.onrender.com/",
-            image: localSocialPostmanPage,
+            image: heartDiseaseImage,
             linkText: "View Live Site",
         },
         {
@@ -520,7 +566,7 @@ const CONFIG = {
                 { title: "User-friendly image upload features" },
             ],
             link: "#",
-            image: profileCardsGeneratorPage,
+            image: skinCancerImage,
             linkText: "Coming Soon",
         },
     ],
@@ -529,7 +575,7 @@ const CONFIG = {
             name: "Fox Global Technologies",
             position: "Django Developer Intern",
             text: "I worked on optimizing backend systems, developing scalable APIs, and implementing real-time features using Django Channels. Improved overall performance by 20% through Redis caching and collaborative teamwork.",
-            avatar: grownUpMarketingAvatar,
+            avatar: foxGlobalImage,
         },
         {
             name: "CodSoft",
@@ -545,9 +591,41 @@ const CONFIG = {
         },
     ],
     achievements: [
-        "Solved 1000+ algorithmic problems across GeeksforGeeks, LeetCode, and HackerRank platforms",
-        "Attained 5-star rating in C/C++ and 3-star rating in Python on HackerRank coding platform",
-        "Successfully delivered 5+ freelance full-stack web applications and automation solutions"
+        "Solved 1000+ algorithmic problems across LeetCode, GeeksforGeeks, and HackerRank",
+        "Attained 5★ rating in C++ on HackerRank (Verified)",
+        "Successfully delivered 20+ full-stack web applications with live deployments",
+        "Published 1 NPM package with 1000+ downloads",
+        "25+ active GitHub repositories with 15+ live deployments"
+    ],
+    certifications: [
+        {
+            name: "Problem Basic Skill",
+            issuer: "HackerRank",
+            date: "2024",
+            certificate: "https://drive.google.com/file/d/1xkRcQ0HJ2t1ZTghIj3AkWeCopFPWBdbq/view?usp=sharing",
+            image: probImage
+        },
+        {
+            name: "Cyber Security",
+            issuer: "Simplilearn",
+            date: "2024",
+            certificate: "https://drive.google.com/file/d/1Xl_jCteXrmoN5aArG-Tr4lTka7mbRGQ_/view?usp=drive_link",
+            image: simpleImage
+        },
+        {
+            name: "AWS S3 Basics",
+            issuer: "AWS",
+            date: "2024",
+            certificate: "https://drive.google.com/file/d/1et4s5CHgIjFAt3f5fj95yzgPh741ONIB/view?usp=sharing",
+            image: awsImage
+        },
+        {
+            name: "Web Dev Workshop",
+            issuer: "Microsoft",
+            date: "2024",
+            certificate: "https://drive.google.com/file/d/1kcD4EwBRqB6uy9Jbn6pB8y4gCFPPDquO/view?usp=drive_link",
+            image: msImage
+        }
     ],
     experienceData: [
         {
@@ -556,17 +634,17 @@ const CONFIG = {
             duration: "April 2025 - Present",
             location: "Remote",
             certificate: "",
-            description: "Engineered responsive interfaces with Next.js and TypeScript, resulting in seamless user experiences. Integrated Strapi CMS using REST/GraphQL APIs while implementing AI features via OpenAI/Pinecone. Developed a modular component library that enhanced development efficiency and code reusability by 25%.",
+            description: "Working on cutting-edge AI-powered applications using Next.js and TypeScript. Implementing facial recognition systems and developing scalable backend solutions. Contributing to open-source projects and mentoring junior developers.",
             achievements: [
-                "Engineered responsive interfaces with Next.js and TypeScript",
-                "Integrated Strapi CMS using REST/GraphQL APIs",
-                "Implemented AI features via OpenAI/Pinecone",
-                "Developed modular component library enhancing efficiency by 25%",
-                "Created seamless user experiences across platforms",
-                "Collaborated on cutting-edge AI integration projects"
+                "Developed AI-powered facial recognition system with 95% accuracy",
+                "Built scalable backend APIs using Python and FastAPI",
+                "Implemented real-time collaboration features with WebSocket",
+                "Created modular component library reducing development time by 30%",
+                "Mentored 3 junior developers in modern web technologies",
+                "Contributed to 5+ open-source projects"
             ],
-            technologies: ["Next.js", "TypeScript", "React", "Strapi CMS", "OpenAI API", "Pinecone", "GraphQL"],
-            image: "/meteorite.png"
+            technologies: ["Next.js", "TypeScript", "React", "Python", "FastAPI", "OpenAI API", "WebSocket"],
+            image: meteoriteImage
         },
         {
             company: "Hirreetech Consulting and Services",
@@ -584,7 +662,7 @@ const CONFIG = {
                 "Collaborated with development teams for seamless delivery"
             ],
             technologies: ["React", "Redux", "Tailwind CSS", "JavaScript", "API Integration", "Performance Optimization"],
-            image: "/hirreetech.png"
+            image: hirreetechImage
         },
         {
             company: "Fox Global Technologies",
@@ -599,7 +677,8 @@ const CONFIG = {
                 "Enhanced system efficiency through query optimization",
                 "Worked with cross-functional teams for seamless service integration"
             ],
-            certificate: "https://drive.google.com/file/d/1U6vSMzlyrUmz2B0K9lUc8sNmpgRsnGII/view?usp=drive_link"
+            certificate: "https://drive.google.com/file/d/1U6vSMzlyrUmz2B0K9lUc8sNmpgRsnGII/view?usp=drive_link",
+            image: foxGlobalImage
         },
         {
             company: "CodSoft",
@@ -613,7 +692,8 @@ const CONFIG = {
                 "Participated in code reviews to enhance code quality",
                 "Worked with a team to ensure timely project delivery"
             ],
-            certificate: "https://drive.google.com/file/d/1ZEBpBwwEqLVKHawuO_jmfkIAbVOG8RmV/view?usp=sharing"
+            certificate: "https://drive.google.com/file/d/1ZEBpBwwEqLVKHawuO_jmfkIAbVOG8RmV/view?usp=sharing",
+            image: codsoftImage
         }
     ],
     profilesData: [
@@ -622,54 +702,54 @@ const CONFIG = {
             description: "Problem solving and algorithmic challenges",
             link: "https://leetcode.com/u/ankit972125/",
             icon: "fa-solid fa-code",
-            image: "img/leetcode.png"
+            image: leetcodeImage
         },
         {
             name: "GitHub",
             description: "Code repositories and project showcase",
             link: "https://github.com/ankitsharma97",
             icon: "fab fa-github",
-            image: "img/github.png"
+            image: githubImage
         },
         {
             name: "LinkedIn",
             description: "Professional network and experience",
             link: "https://www.linkedin.com/in/ankit-sharma-64aa32255/",
             icon: "fa-brands fa-linkedin",
-            image: "img/linkedin.png"
+            image: linkedinImage
         },
         {
             name: "GeeksforGeeks",
             description: "DSA practice and learning",
             link: "https://www.geeksforgeeks.org/user/ankit_sharma0616/",
             icon: "fa-brands fa-free-code-camp",
-            image: "img/gfg.png"
+            image: gfgImage
         },
         {
             name: "X-Twitter",
             description: "Tech updates and networking",
             link: "https://twitter.com/ANKITSH0161",
             icon: "fab fa-twitter",
-            image: "img/twitter.png"
+            image: twitterImage
         },
         {
             name: "HackerRank",
             description: "Coding challenges and skills assessment",
             link: "https://www.hackerrank.com/profile/ankit972125/",
             icon: "fa-brands fa-hackerrank",
-            image: "img/hackerrank.png"
+            image: hackerrankImage
         }
     ],
     skillsData: [
         {
             category: "Programming Languages",
             skills: [
-                { name: "JavaScript", proficiency: 90, icon: "fab fa-js-square" },
-                { name: "TypeScript", proficiency: 85, icon: "fab fa-js-square" },
+                { name: "JavaScript", proficiency: 85, icon: "fab fa-js-square" },
+                { name: "TypeScript", proficiency: 80, icon: "fab fa-js-square" },
                 { name: "Python", proficiency: 90, icon: "fab fa-python" },
-                { name: "C/C++", proficiency: 95, icon: "fa-solid fa-code" },
-                { name: "Java", proficiency: 80, icon: "fab fa-java" },
-                { name: "SQL", proficiency: 85, icon: "fas fa-database" }
+                { name: "C/C++", proficiency: 85, icon: "fa-solid fa-code" },
+                { name: "Java", proficiency: 75, icon: "fab fa-java" },
+                { name: "SQL", proficiency: 80, icon: "fas fa-database" }
             ]
         },
         {
@@ -771,3 +851,4 @@ export const experienceData = CONFIG.experienceData;
 export const profilesData = CONFIG.profilesData;
 export const skillsData = CONFIG.skillsData;
 export const achievements = CONFIG.achievements;
+export const certifications = CONFIG.certifications;

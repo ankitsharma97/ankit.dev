@@ -3,6 +3,7 @@ import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import { profilesData } from "../../profile.config";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export const ProfilesSection = ({ id }: { id: string }) => {
     return (
@@ -24,8 +25,12 @@ export const ProfilesSection = ({ id }: { id: string }) => {
                         >
                             <Card className="p-6 md:p-8 h-full">
                                 <div className="flex flex-col items-center text-center h-full">
-                                    <div className="w-16 h-16 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center mb-4">
-                                        <i className={`${profile.icon} text-2xl text-gray-950`}></i>
+                                    <div className="w-16 h-16 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center mb-4 overflow-hidden">
+                                        <Image
+                                            src={profile.image}
+                                            alt={profile.name}
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
                                     <h3 className="font-serif text-xl md:text-2xl text-white mb-2">
                                         {profile.name}
