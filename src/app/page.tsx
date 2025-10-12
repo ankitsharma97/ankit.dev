@@ -149,10 +149,10 @@ export default function Home() {
                     </div>
                     <div className="max-w-lg mx-auto">
                         <h1 className="font-serif text-3xl md:text-5xl text-center tracking-wide">
-                            Full-Stack Developer & Problem Solver
+                            Software Engineer & Technical Innovator
                         </h1>
                         <p className="mt-4 text-center font-light text-white/80 tracking-wide md:text-lg">
-                            I specialize in creating responsive web applications and solving complex problems.
+                            I design and build scalable software solutions, architect robust systems, and drive technical innovation.
                             Currently pursuing BTech in Information Technology (2026).
                         </p>
                     </div>

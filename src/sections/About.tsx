@@ -20,8 +20,8 @@ export const AboutSection = ({ id }: { id: string }) => {
             <section className="container" id={id}>
                 <SectionHeader
                     heading1="About Me"
-                    heading2="A Glimpse Into My World"
-                    paragraph="Learn more about who I am, what I do, and what inspires me. Currently pursuing BTech in Information Technology at AKTU, Lucknow."
+                    heading2="Software Engineer & Technical Leader"
+                    paragraph="Passionate about building scalable software solutions and driving technical innovation. Currently pursuing BTech in Information Technology at AKTU, Lucknow."
                 />
                 <div className="mt-20 flex flex-col gap-8">
                     <div className="grid gap-8 grid-cols-1 md:grid-cols-5 lg:grid-cols-3">
