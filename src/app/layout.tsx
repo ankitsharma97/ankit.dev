@@ -4,6 +4,7 @@ import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import Script from "next/script";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({ subsets: ["latin"], variable: "--font-serif", weight: ["400"] });
@@ -49,6 +50,7 @@ export default function RootLayout({
                 )}>
                 <ScrollToTop />
                 {children}
+                <Analytics />
             </body>
         </html>
     );
