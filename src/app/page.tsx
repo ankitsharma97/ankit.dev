@@ -9,6 +9,7 @@ import grainImage from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
 import { HeroOrbit } from "@/components/HeroOrbit";
+import { HeroThreeScene } from "@/components/HeroThreeScene";
 import { Card } from "@/components/Card";
 import { Navigation } from "@/components/Navigation";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
@@ -45,6 +46,7 @@ export default function Home() {
                     style={{
                         maskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
                     }}>
+                    <HeroThreeScene />
                     <div
                         className="absolute inset-0 -z-30 opacity-5"
                         style={{
