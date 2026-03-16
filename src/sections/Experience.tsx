@@ -4,7 +4,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { experienceData } from "../../profile.config";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { fadeUp, staggerContainer, transition, viewport } from "@/lib/motion";
+import { fadeUp, transition, viewport } from "@/lib/motion";
 
 export const ExperienceSection = ({ id }: { id: string }) => {
     return (
@@ -15,17 +15,14 @@ export const ExperienceSection = ({ id }: { id: string }) => {
                     heading2="My Internship Journey"
                     paragraph="Explore my professional experience and the impact I've made through various internships."
                 />
-                <motion.div
-                    className="mt-20 flex flex-col gap-12"
-                    variants={staggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewport}
-                >
+                <div className="mt-20 flex flex-col gap-12">
                     {experienceData.map((experience, index) => (
                         <motion.div
                             key={experience.company}
                             variants={fadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={viewport}
                             transition={{ ...transition, delay: index * 0.08 }}
                             className="group cursor-pointer"
                         >
@@ -91,7 +88,7 @@ export const ExperienceSection = ({ id }: { id: string }) => {
                             </Card>
                         </motion.div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     );
