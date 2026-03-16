@@ -4,6 +4,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { experienceData } from "../../profile.config";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { fadeUp, staggerContainer, transition, viewport } from "@/lib/motion";
 
 export const ExperienceSection = ({ id }: { id: string }) => {
     return (
@@ -14,17 +15,21 @@ export const ExperienceSection = ({ id }: { id: string }) => {
                     heading2="My Internship Journey"
                     paragraph="Explore my professional experience and the impact I've made through various internships."
                 />
-                <div className="mt-20 flex flex-col gap-12">
+                <motion.div
+                    className="mt-20 flex flex-col gap-12"
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewport}
+                >
                     {experienceData.map((experience, index) => (
                         <motion.div
                             key={experience.company}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
+                            variants={fadeUp}
+                            transition={{ ...transition, delay: index * 0.08 }}
                             className="group cursor-pointer"
                         >
-                            <Card className="p-8 md:p-10 lg:p-12 group-hover:border-2 group-hover:border-emerald-300/50 transition-all duration-300">
+                            <Card className="p-8 md:p-10 lg:p-12">
                                 <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8">
                                     <div className="lg:flex-1">
                                         <div className="flex flex-col md:flex-row md:items-center md:gap-4 mb-4">
@@ -64,7 +69,7 @@ export const ExperienceSection = ({ id }: { id: string }) => {
                                             href={experience.certificate}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-950 rounded-xl font-semibold hover:bg-white/90 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/30 relative overflow-hidden group"
+                                            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-950 rounded-xl font-semibold hover:bg-white/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-emerald-300/20 relative overflow-hidden group"
                                         >
                                             <div className="absolute inset-0 bg-gradient-to-r from-emerald-300/0 via-emerald-300/0 to-emerald-300/0 group-hover:from-emerald-300/10 group-hover:via-emerald-300/20 group-hover:to-emerald-300/10 transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
                                             <span className="relative z-10">View Certificate</span>
@@ -77,7 +82,7 @@ export const ExperienceSection = ({ id }: { id: string }) => {
                                             <Image
                                                 src={experience.image}
                                                 alt={experience.company}
-                                                className="w-full h-full object-cover"
+                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                             />
                                         </div>
 
@@ -86,8 +91,8 @@ export const ExperienceSection = ({ id }: { id: string }) => {
                             </Card>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
-}; 
+};

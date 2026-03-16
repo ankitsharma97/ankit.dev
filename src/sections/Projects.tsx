@@ -1,12 +1,12 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import CheckIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 import { portfolioProjects } from "../../profile.config";
 import { motion } from "framer-motion";
+import { fadeUp, staggerContainer, transition, viewport } from "@/lib/motion";
 
 export const ProjectsSection = ({ id }: { id: string }) => {
     const [activeFilter, setActiveFilter] = useState("All");
@@ -86,33 +86,44 @@ export const ProjectsSection = ({ id }: { id: string }) => {
                         <button
                             key={category.name}
                             onClick={() => setActiveFilter(category.name)}
-                            className={`px-6 py-3 rounded-full font-medium transition-all duration-200 ${
+                            className={`relative px-6 py-3 rounded-full font-medium transition-all duration-200 ${
                                 activeFilter === category.name
-                                    ? `bg-gradient-to-r ${category.color} text-gray-950 shadow-lg`
+                                    ? "text-gray-950 shadow-lg"
                                     : "bg-white/10 text-white/70 hover:text-white hover:bg-white/20"
                             }`}
                         >
-                            {category.name}
+                            {activeFilter === category.name && (
+                                <motion.span
+                                    layoutId="project-filter-pill"
+                                    className={`absolute inset-0 rounded-full bg-gradient-to-r ${category.color}`}
+                                    transition={{ type: "spring", stiffness: 320, damping: 30 }}
+                                />
+                            )}
+                            <span className="relative z-10">{category.name}</span>
                         </button>
                     ))}
                 </div>
                 
                 {/* Filtered Projects Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    variants={staggerContainer}
+                    initial="hidden"
+                    animate="visible"
+                >
                     {filteredProjects.map((project, index) => (
                             <motion.div
                                 key={project.title}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                variants={fadeUp}
+                                transition={{ ...transition, delay: index * 0.06 }}
                                 layout
                                 whileHover={{ 
                                     y: -8, 
-                                    scale: 1.02
+                                    scale: 1.01
                                 }}
-                                className="group cursor-pointer"
+                                className="group cursor-pointer perspective-1000"
                             >
-                            <Card className="p-6 h-full group-hover:shadow-lg transition-all duration-300 hover:bg-white/5 relative overflow-hidden border border-white/10 group-hover:border-white/20">
+                            <Card className="p-6 h-full relative overflow-hidden">
                                 <div className="flex flex-col h-full">
                                     {/* Project Image */}
                                     <div className="mb-4 relative overflow-hidden rounded-lg">
@@ -120,10 +131,10 @@ export const ProjectsSection = ({ id }: { id: string }) => {
                                             <Image
                                                 src={project.image}
                                                 alt={project.title}
-                                                className="w-full h-48 object-cover rounded-lg group-hover:scale-105 transition-all duration-300"
+                                                className="w-full h-48 object-cover rounded-lg group-hover:scale-105 transition-all duration-500"
                                                 loading="lazy"
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent group-hover:from-black/5 group-hover:to-transparent transition-all duration-300"></div>
+                                            <div className="absolute inset-0 bg-gradient-to-t from-gray-950/50 via-transparent to-transparent"></div>
                                         </div>
                                     </div>
                                     
@@ -161,12 +172,12 @@ export const ProjectsSection = ({ id }: { id: string }) => {
                                                     href={project.liveLink} 
                                                     target="_blank" 
                                                     rel="noopener noreferrer"
-                                                    className="block"
+                                                    className="block rounded-lg"
                                                 >
-                                                    <button className="w-full bg-white/10 backdrop-blur-sm border border-white/20 text-white h-9 rounded-lg font-medium text-xs hover:bg-white/20 hover:border-white/30 transition-all duration-200 flex items-center justify-center gap-1.5">
+                                                    <span className="w-full bg-white/10 backdrop-blur-sm border border-white/20 text-white h-9 rounded-lg font-medium text-xs hover:bg-white/20 hover:border-white/30 transition-all duration-200 flex items-center justify-center gap-1.5">
                                                         <span>Live</span>
                                                         <ArrowUpRightIcon className="size-3" />
-                                                    </button>
+                                                    </span>
                                                 </a>
                                                 
                                                 {/* Source Code Button */}
@@ -174,12 +185,12 @@ export const ProjectsSection = ({ id }: { id: string }) => {
                                                     href={project.sourceLink} 
                                                     target="_blank" 
                                                     rel="noopener noreferrer"
-                                                    className="block"
+                                                    className="block rounded-lg"
                                                 >
-                                                    <button className="w-full bg-white/10 backdrop-blur-sm border border-white/20 text-white h-9 rounded-lg font-medium text-xs hover:bg-white/20 hover:border-white/30 transition-all duration-200 flex items-center justify-center gap-1.5">
+                                                    <span className="w-full bg-white/10 backdrop-blur-sm border border-white/20 text-white h-9 rounded-lg font-medium text-xs hover:bg-white/20 hover:border-white/30 transition-all duration-200 flex items-center justify-center gap-1.5">
                                                         <span>Code</span>
                                                         <ArrowUpRightIcon className="size-3" />
-                                                    </button>
+                                                    </span>
                                                 </a>
                                             </div>
                                         ) : (
@@ -188,12 +199,12 @@ export const ProjectsSection = ({ id }: { id: string }) => {
                                                 href={project.liveLink || project.sourceLink} 
                                                 target="_blank" 
                                                 rel="noopener noreferrer"
-                                                className="block"
+                                                className="block rounded-lg"
                                             >
-                                                <button className="w-full bg-white/10 backdrop-blur-sm border border-white/20 text-white h-9 rounded-lg font-medium text-sm hover:bg-white/20 hover:border-white/30 transition-all duration-200 flex items-center justify-center gap-2">
+                                                <span className="w-full bg-white/10 backdrop-blur-sm border border-white/20 text-white h-9 rounded-lg font-medium text-sm hover:bg-white/20 hover:border-white/30 transition-all duration-200 flex items-center justify-center gap-2">
                                                     <span>{project.liveLink ? "Live Demo" : "View Code"}</span>
                                                     <ArrowUpRightIcon className="size-3" />
-                                                </button>
+                                                </span>
                                             </a>
                                         )}
                                     </div>
@@ -201,13 +212,15 @@ export const ProjectsSection = ({ id }: { id: string }) => {
                             </Card>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
                 
                 {/* No Projects Message */}
                 {filteredProjects.length === 0 && (
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        variants={fadeUp}
+                        initial="hidden"
+                        animate="visible"
+                        transition={transition}
                         className="text-center py-12"
                     >
                         <p className="text-white/60 text-lg">No projects found in this category.</p>

@@ -3,6 +3,7 @@ import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import { skillsData } from "../../profile.config";
 import { motion } from "framer-motion";
+import { fadeUp, transition, viewport } from "@/lib/motion";
 
 export const SkillsSection = ({ id }: { id: string }) => {
     return (
@@ -21,10 +22,11 @@ export const SkillsSection = ({ id }: { id: string }) => {
                         ).slice(0, Math.ceil(skillsData.length / 2)).map((category, categoryIndex) => (
                             <motion.div
                                 key={category.category}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                                viewport={{ once: true }}
+                                variants={fadeUp}
+                                initial="hidden"
+                                whileInView="visible"
+                                transition={{ ...transition, delay: categoryIndex * 0.08 }}
+                                viewport={viewport}
                             >
                                 <Card className="p-6 md:p-8">
                                     <div className="mb-6">
@@ -41,10 +43,10 @@ export const SkillsSection = ({ id }: { id: string }) => {
                                                 initial={{ opacity: 0, scale: 0.9 }}
                                                 whileInView={{ opacity: 1, scale: 1 }}
                                                 transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
-                                                viewport={{ once: true }}
+                                                viewport={viewport}
                                                 className="group"
                                             >
-                                                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 border border-white/10 hover:border-emerald-300/30">
+                                                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 border border-white/10 hover:border-emerald-300/30 hover:-translate-y-0.5">
                                                     <div className="w-8 h-8 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                                                         <i className={`${skill.icon} text-sm text-gray-950`}></i>
                                                     </div>
@@ -65,10 +67,11 @@ export const SkillsSection = ({ id }: { id: string }) => {
                         ).map((category, categoryIndex) => (
                             <motion.div
                                 key={category.category}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                                viewport={{ once: true }}
+                                variants={fadeUp}
+                                initial="hidden"
+                                whileInView="visible"
+                                transition={{ ...transition, delay: categoryIndex * 0.08 }}
+                                viewport={viewport}
                             >
                                 <Card className="p-6 md:p-8">
                                     <div className="mb-6">
@@ -85,10 +88,10 @@ export const SkillsSection = ({ id }: { id: string }) => {
                                                 initial={{ opacity: 0, scale: 0.9 }}
                                                 whileInView={{ opacity: 1, scale: 1 }}
                                                 transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
-                                                viewport={{ once: true }}
+                                                viewport={viewport}
                                                 className="group"
                                             >
-                                                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 border border-white/10 hover:border-emerald-300/30">
+                                                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 border border-white/10 hover:border-emerald-300/30 hover:-translate-y-0.5">
                                                     <div className="w-8 h-8 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                                                         <i className={`${skill.icon} text-sm text-gray-950`}></i>
                                                     </div>
@@ -107,10 +110,11 @@ export const SkillsSection = ({ id }: { id: string }) => {
                         ).slice(Math.ceil(skillsData.length / 2)).map((category, categoryIndex) => (
                             <motion.div
                                 key={category.category}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                                viewport={{ once: true }}
+                                variants={fadeUp}
+                                initial="hidden"
+                                whileInView="visible"
+                                transition={{ ...transition, delay: categoryIndex * 0.08 }}
+                                viewport={viewport}
                             >
                                 <Card className="p-6 md:p-8">
                                     <div className="mb-6">
@@ -127,10 +131,10 @@ export const SkillsSection = ({ id }: { id: string }) => {
                                                 initial={{ opacity: 0, scale: 0.9 }}
                                                 whileInView={{ opacity: 1, scale: 1 }}
                                                 transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
-                                                viewport={{ once: true }}
+                                                viewport={viewport}
                                                 className="group"
                                             >
-                                                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 border border-white/10 hover:border-emerald-300/30">
+                                                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 border border-white/10 hover:border-emerald-300/30 hover:-translate-y-0.5">
                                                     <div className="w-8 h-8 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                                                         <i className={`${skill.icon} text-sm text-gray-950`}></i>
                                                     </div>
@@ -147,10 +151,11 @@ export const SkillsSection = ({ id }: { id: string }) => {
                 
                 {/* Skills Summary */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                    viewport={{ once: true }}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    transition={{ ...transition, delay: 0.25 }}
+                    viewport={viewport}
                     className="mt-16"
                 >
                     <Card className="p-8 md:p-10 text-center">
