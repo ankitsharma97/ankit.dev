@@ -6,7 +6,7 @@ export const Card = ({ children, className, style, ...other }: ComponentPropsWit
     return (
         <div
             className={twMerge(
-                `bg-gray-800 rounded-3xl z-0 overflow-hidden after:z-10 relative after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-3xl after:outline-white/30 after:pointer-events-none p-6`,
+                `interactive-card panel-sheen surface-glow bg-gray-800 rounded-3xl z-0 overflow-hidden after:z-10 relative after:content-[''] after:absolute after:inset-0 after:outline after:outline-1 after:-outline-offset-1 after:rounded-3xl after:outline-white/15 after:pointer-events-none p-6`,
                 className
             )}
             style={style}
@@ -16,6 +16,7 @@ export const Card = ({ children, className, style, ...other }: ComponentPropsWit
                 style={{
                     backgroundImage: `url(${grainImage.src})`,
                 }}></div>
+            <div className="absolute inset-x-10 top-0 h-20 rounded-full bg-emerald-300/10 blur-3xl"></div>
             {children}
         </div>
     );
