@@ -69,6 +69,8 @@ import hirreetechImage from "@/assets/images/hirreetech.png";
 import meteoriteImage from "@/assets/images/meteorite.png";
 import foxGlobalImage from "@/assets/images/fox-global.png";
 import foxGlobalImageFS from "@/assets/images/fox-global-fs.png";
+import cruvImage from "@/assets/images/cruv.png";
+import sotImage from "@/assets/images/sot.png";
 
 const CONFIG = {
     email: "ankit972125@gmail.com",
@@ -611,6 +613,57 @@ const CONFIG = {
         }
     ],
     experienceData: [
+        {
+            company: "ShortOrbit Technologies Pvt Ltd",
+            position: "Python Developer Intern",
+            duration: "January 2026 - Present",
+            location: "Remote",
+            certificate: "",
+            description: "Maintaining and improving backend systems while contributing to frontend development. Focused on bug fixing, performance optimization, and system stability.",
+            achievements: [
+                "Maintained and debugged backend systems built with Django and FastAPI",
+                "Resolved critical production bugs, improving system reliability",
+                "Optimized APIs and improved backend performance",
+                "Collaborated on frontend development using Angular",
+                "Improved code quality and assisted in system architecture enhancements"
+            ],
+            technologies: ["Python", "Django", "FastAPI", "Angular", "PostgreSQL", "REST APIs", "Git"],
+            image: sotImage
+        },
+        {
+            company: "Cruv",
+            position: "Software Developer Intern",
+            duration: "November 2025 - January 2026",
+            location: "Remote",
+            certificate: "",
+            description: "Worked on building scalable backend systems and implementing complex features using Django REST Framework.",
+            achievements: [
+                "Developed a file storage system similar to Google Drive with upload and access control features",
+                "Built an endorsement system for user interactions and validation",
+                "Implemented email services similar to Gmail with sending, receiving, and notification features",
+                "Designed and developed scalable REST APIs using Django REST Framework",
+                "Handled complex backend logic and improved system performance"
+            ],
+            technologies: ["Python", "Django", "Django REST Framework", "PostgreSQL", "Redis", "REST APIs", "SMTP"],
+            image: cruvImage
+        },
+        {
+            company: "WhatBytes",
+            position: "Django developer intern",
+            duration: "October 2025 - November 2025",
+            location: "Remote",
+            certificate: "",
+            description: "Completed an assigned project focused on building an intelligent recommendation system using modern AI techniques.",
+            achievements: [
+                "Developed a book recommendation system using RAG (Retrieval-Augmented Generation)",
+                "Integrated LLM-based responses with Django backend",
+                "Designed efficient data retrieval and ranking mechanisms",
+                "Built APIs for handling recommendation queries",
+                "Improved recommendation accuracy using contextual search"
+            ],
+            technologies: ["Python", "Django", "RAG", "OpenAI API", "PostgreSQL", "REST APIs"],
+            image: meteoriteImage
+        },
         {
             company: "Meteorite Labs",
             position: "Junior Software Engineer",
