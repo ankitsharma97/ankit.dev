@@ -1,188 +1,122 @@
 "use client";
+
+import { motion } from "framer-motion";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
+import { fadeLeft, fadeUp, staggerContainer, transition, viewport } from "@/lib/motion";
 import { skillsData } from "../../profile.config";
-import { motion } from "framer-motion";
-import { fadeUp, transition, viewport } from "@/lib/motion";
 
 export const SkillsSection = ({ id }: { id: string }) => {
+    const totalSkills = skillsData.reduce((count, category) => count + category.skills.length, 0);
+    const strongestCategory = [...skillsData].sort(
+        (left, right) =>
+            right.skills.reduce((sum, skill) => sum + skill.proficiency, 0) / right.skills.length -
+            left.skills.reduce((sum, skill) => sum + skill.proficiency, 0) / left.skills.length
+    )[0];
+
     return (
         <section className="py-20 md:py-14 lg:py-20 overflow-x-hidden" id={id}>
             <div className="container">
                 <SectionHeader
                     heading1="Skills"
-                    heading2="My Technical Arsenal"
-                    paragraph="A comprehensive overview of my technical skills and expertise across various domains."
+                    heading2="Technical Capabilities"
+                    paragraph="A simple overview of the tools and engineering areas I work with most often in real projects."
                 />
-                
-                <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div className="space-y-8">
-                        {skillsData.filter(category => 
-                            category.category !== "Data Structures & Algorithms"
-                        ).slice(0, Math.ceil(skillsData.length / 2)).map((category, categoryIndex) => (
+
+                <div className="mt-16 grid gap-8 xl:grid-cols-[0.78fr_1.22fr] xl:items-start">
+                    <motion.div
+                        variants={fadeLeft}
+                        initial="hidden"
+                        whileInView="visible"
+                        transition={transition}
+                        viewport={viewport}
+                        className="space-y-6 xl:sticky xl:top-24"
+                    >
+                        <Card className="p-8 md:p-10">
+                            <p className="text-xs uppercase tracking-[0.28em] text-white/40">Overview</p>
+                            <h3 className="mt-4 max-w-md font-serif text-3xl text-white md:text-4xl">
+                                Clean, practical, full stack engineering.
+                            </h3>
+                            <p className="mt-5 max-w-xl text-base leading-8 text-white/68">
+                                I focus on building usable interfaces, reliable backend systems, and complete product flows
+                                with a modern web stack.
+                            </p>
+
+                            <div className="mt-8 grid grid-cols-2 gap-4">
+                                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                                    <p className="text-xs uppercase tracking-[0.18em] text-white/40">Categories</p>
+                                    <p className="mt-3 font-serif text-2xl text-white">{skillsData.length}</p>
+                                </div>
+                                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                                    <p className="text-xs uppercase tracking-[0.18em] text-white/40">Skills</p>
+                                    <p className="mt-3 font-serif text-2xl text-white">{totalSkills}+</p>
+                                </div>
+                            </div>
+                        </Card>
+
+                        <Card className="p-6 md:p-7">
+                            <p className="text-xs uppercase tracking-[0.24em] text-white/40">Focus Area</p>
+                            <h3 className="mt-3 font-serif text-2xl text-white">{strongestCategory.category}</h3>
+                            <p className="mt-4 text-sm leading-7 text-white/68">
+                                One of the strongest areas in the stack, with tools I use regularly across product delivery
+                                and implementation.
+                            </p>
+                            <div className="mt-5 flex flex-wrap gap-2">
+                                {strongestCategory.skills.slice(0, 5).map((skill) => (
+                                    <span
+                                        key={skill.name}
+                                        className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-sm text-white/72"
+                                    >
+                                        {skill.name}
+                                    </span>
+                                ))}
+                            </div>
+                        </Card>
+                    </motion.div>
+
+                    <motion.div
+                        className="grid gap-4 md:grid-cols-2"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewport}
+                    >
+                        {skillsData.map((category, index) => (
                             <motion.div
                                 key={category.category}
                                 variants={fadeUp}
-                                initial="hidden"
-                                whileInView="visible"
-                                transition={{ ...transition, delay: categoryIndex * 0.08 }}
-                                viewport={viewport}
+                                transition={{ ...transition, delay: index * 0.04 }}
                             >
-                                <Card className="p-6 md:p-8">
-                                    <div className="mb-6">
-                                        <h3 className="font-serif text-2xl md:text-3xl text-white mb-2">
-                                            {category.category}
-                                        </h3>
-                                        <div className="w-16 h-1 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full"></div>
+                                <Card className="h-full p-6 md:p-7">
+                                    <div className="flex items-start justify-between gap-4">
+                                        <div>
+                                            <p className="text-xs uppercase tracking-[0.2em] text-white/35">
+                                                {String(index + 1).padStart(2, "0")}
+                                            </p>
+                                            <h3 className="mt-3 font-serif text-2xl text-white">{category.category}</h3>
+                                        </div>
+                                        <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-white/55">
+                                            {category.skills.length} items
+                                        </span>
                                     </div>
-                                    
-                                    <div className="grid grid-cols-2 gap-4">
-                                        {category.skills.map((skill, skillIndex) => (
-                                            <motion.div
+
+                                    <div className="mt-6 flex flex-wrap gap-2">
+                                        {category.skills.map((skill) => (
+                                            <div
                                                 key={skill.name}
-                                                initial={{ opacity: 0, scale: 0.9 }}
-                                                whileInView={{ opacity: 1, scale: 1 }}
-                                                transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
-                                                viewport={viewport}
-                                                className="group"
+                                                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-white/75"
                                             >
-                                                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 border border-white/10 hover:border-emerald-300/30 hover:-translate-y-0.5">
-                                                    <div className="w-8 h-8 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                                        <i className={`${skill.icon} text-sm text-gray-950`}></i>
-                                                    </div>
-                                                    <span className="font-medium text-white text-sm">{skill.name}</span>
-                                                </div>
-                                            </motion.div>
+                                                <i className={`${skill.icon} text-xs text-white/55`} />
+                                                <span>{skill.name}</span>
+                                            </div>
                                         ))}
                                     </div>
                                 </Card>
                             </motion.div>
                         ))}
-                    </div>
-                    
-                    <div className="space-y-8">
-                        {/* DSA Section - Always on the right */}
-                        {skillsData.filter(category => 
-                            category.category === "Data Structures & Algorithms"
-                        ).map((category, categoryIndex) => (
-                            <motion.div
-                                key={category.category}
-                                variants={fadeUp}
-                                initial="hidden"
-                                whileInView="visible"
-                                transition={{ ...transition, delay: categoryIndex * 0.08 }}
-                                viewport={viewport}
-                            >
-                                <Card className="p-6 md:p-8">
-                                    <div className="mb-6">
-                                        <h3 className="font-serif text-2xl md:text-3xl text-white mb-2">
-                                            {category.category}
-                                        </h3>
-                                        <div className="w-16 h-1 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full"></div>
-                                    </div>
-                                    
-                                    <div className="grid grid-cols-2 gap-4">
-                                        {category.skills.map((skill, skillIndex) => (
-                                            <motion.div
-                                                key={skill.name}
-                                                initial={{ opacity: 0, scale: 0.9 }}
-                                                whileInView={{ opacity: 1, scale: 1 }}
-                                                transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
-                                                viewport={viewport}
-                                                className="group"
-                                            >
-                                                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 border border-white/10 hover:border-emerald-300/30 hover:-translate-y-0.5">
-                                                    <div className="w-8 h-8 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                                        <i className={`${skill.icon} text-sm text-gray-950`}></i>
-                                                    </div>
-                                                    <span className="font-medium text-white text-sm">{skill.name}</span>
-                                                </div>
-                                            </motion.div>
-                                        ))}
-                                    </div>
-                                </Card>
-                            </motion.div>
-                        ))}
-                        
-                        {/* Other sections for the right column */}
-                        {skillsData.filter(category => 
-                            category.category !== "Data Structures & Algorithms"
-                        ).slice(Math.ceil(skillsData.length / 2)).map((category, categoryIndex) => (
-                            <motion.div
-                                key={category.category}
-                                variants={fadeUp}
-                                initial="hidden"
-                                whileInView="visible"
-                                transition={{ ...transition, delay: categoryIndex * 0.08 }}
-                                viewport={viewport}
-                            >
-                                <Card className="p-6 md:p-8">
-                                    <div className="mb-6">
-                                        <h3 className="font-serif text-2xl md:text-3xl text-white mb-2">
-                                            {category.category}
-                                        </h3>
-                                        <div className="w-16 h-1 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full"></div>
-                                    </div>
-                                    
-                                    <div className="grid grid-cols-2 gap-4">
-                                        {category.skills.map((skill, skillIndex) => (
-                                            <motion.div
-                                                key={skill.name}
-                                                initial={{ opacity: 0, scale: 0.9 }}
-                                                whileInView={{ opacity: 1, scale: 1 }}
-                                                transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
-                                                viewport={viewport}
-                                                className="group"
-                                            >
-                                                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-200 border border-white/10 hover:border-emerald-300/30 hover:-translate-y-0.5">
-                                                    <div className="w-8 h-8 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                                                        <i className={`${skill.icon} text-sm text-gray-950`}></i>
-                                                    </div>
-                                                    <span className="font-medium text-white text-sm">{skill.name}</span>
-                                                </div>
-                                            </motion.div>
-                                        ))}
-                                    </div>
-                                </Card>
-                            </motion.div>
-                        ))}
-                    </div>
+                    </motion.div>
                 </div>
-                
-                {/* Skills Summary */}
-                <motion.div
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    transition={{ ...transition, delay: 0.25 }}
-                    viewport={viewport}
-                    className="mt-16"
-                >
-                    <Card className="p-8 md:p-10 text-center">
-                        <h3 className="font-serif text-2xl md:text-3xl text-white mb-4">
-                            Skills Overview
-                        </h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
-                            <div className="text-center">
-                                <div className="text-3xl md:text-4xl font-bold text-emerald-300 mb-2">9</div>
-                                <div className="text-white/70 text-sm">Categories</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-3xl md:text-4xl font-bold text-emerald-300 mb-2">40+</div>
-                                <div className="text-white/70 text-sm">Skills</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-3xl md:text-4xl font-bold text-emerald-300 mb-2">3+</div>
-                                <div className="text-white/70 text-sm">Years Experience</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-3xl md:text-4xl font-bold text-emerald-300 mb-2">15+</div>
-                                <div className="text-white/70 text-sm">Projects Built</div>
-                            </div>
-                        </div>
-                    </Card>
-                </motion.div>
             </div>
         </section>
     );
-}; 
+};

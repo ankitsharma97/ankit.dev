@@ -221,11 +221,13 @@ export default function Home() {
                                         className="rounded-2xl border border-white/10 bg-white/[0.03] p-5"
                                     >
                                         <h3 className="font-serif text-xl text-white">{category.category}</h3>
-                                        <div className="mt-4 space-y-3">
+                                        <div className="mt-4 flex flex-wrap gap-2">
                                             {category.skills.slice(0, 3).map((skill) => (
-                                                <div key={skill.name} className="flex items-center justify-between text-sm">
-                                                    <span className="text-white/75">{skill.name}</span>
-                                                    <span className="font-semibold text-emerald-300">{skill.proficiency}%</span>
+                                                <div
+                                                    key={skill.name}
+                                                    className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-sm text-white/75"
+                                                >
+                                                    {skill.name}
                                                 </div>
                                             ))}
                                         </div>
