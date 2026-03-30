@@ -1,99 +1,69 @@
 "use client";
+
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
+import { fadeLeft, fadeRight, fadeUp, transition, viewport } from "@/lib/motion";
 import { email, footerLinks } from "../../profile.config";
 
+const contactItems = [
+    { icon: "fas fa-envelope", label: "Email", value: email, href: `mailto:${email}` },
+    { icon: "fas fa-map-marker-alt", label: "Location", value: "UP, India" },
+    { icon: "fas fa-graduation-cap", label: "Education", value: "AKTU, Lucknow" },
+    { icon: "fas fa-phone", label: "Mobile", value: "+91 815080798" },
+    { icon: "fas fa-globe", label: "Languages", value: "Sanskrit, Hindi, English" },
+];
+
 export const ContactSection = ({ id }: { id: string }) => {
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
     return (
         <section className="py-20 md:py-14 lg:py-20 overflow-x-hidden" id={id}>
             <div className="container">
                 <SectionHeader
                     heading1="Contact"
                     heading2="Let's Connect"
-                    paragraph="Ready to bring your next project to life? Let's discuss how I can help you achieve your goals."
+                    paragraph="Ready to bring your next project to life? Let&apos;s discuss how I can help you achieve your goals."
                 />
-                
-                <div className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    {/* Contact Information */}
+
+                <div className="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-2">
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true }}
+                        variants={fadeLeft}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewport}
+                        transition={transition}
                     >
                         <Card className="p-8 md:p-10">
-                            <h3 className="font-serif text-2xl md:text-3xl text-white mb-8">
-                                Get In Touch
-                            </h3>
-                            
-                            <div className="space-y-6">
-                                {/* Email */}
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center">
-                                        <i className="fas fa-envelope text-lg text-gray-950"></i>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-semibold text-white mb-1">Email</h4>
-                                        <a 
-                                            href={`mailto:${email}`}
-                                            className="text-emerald-300 hover:text-emerald-200 transition-colors"
-                                        >
-                                            {email}
-                                        </a>
-                                    </div>
-                                </div>
+                            <h3 className="font-serif text-2xl md:text-3xl text-white mb-8">Get In Touch</h3>
 
-                                {/* Location */}
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center">
-                                        <i className="fas fa-map-marker-alt text-lg text-gray-950"></i>
+                            <div className="space-y-4">
+                                {contactItems.map((item) => (
+                                    <div key={item.label} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                                        <div className="flex items-center gap-4">
+                                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-emerald-300 to-sky-400">
+                                                <i className={`${item.icon} text-lg text-gray-950`}></i>
+                                            </div>
+                                            <div>
+                                                <h4 className="font-semibold text-white">{item.label}</h4>
+                                                {item.href ? (
+                                                    <a href={item.href} className="text-emerald-300 hover:text-emerald-200 transition-colors">
+                                                        {item.value}
+                                                    </a>
+                                                ) : (
+                                                    <p className="text-white/70">{item.value}</p>
+                                                )}
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h4 className="font-semibold text-white mb-1">Location</h4>
-                                        <p className="text-white/70">UP, India</p>
-                                    </div>
-                                </div>
-
-                                {/* Education */}
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center">
-                                        <i className="fas fa-graduation-cap text-lg text-gray-950"></i>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-semibold text-white mb-1">Education</h4>
-                                        <p className="text-white/70">AKTU, Lucknow</p>
-                                    </div>
-                                </div>
-
-                                {/* Mobile */}
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center">
-                                        <i className="fas fa-phone text-lg text-gray-950"></i>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-semibold text-white mb-1">Mobile</h4>
-                                        <p className="text-white/70">+91 815080798</p>
-                                    </div>
-                                </div>
-
-                                {/* Languages */}
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center">
-                                        <i className="fas fa-globe text-lg text-gray-950"></i>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-semibold text-white mb-1">Languages</h4>
-                                        <p className="text-white/70">Sanskrit, Hindi, English</p>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
 
-                            {/* Social Links */}
-                            <div className="mt-8 pt-8 border-t border-white/10">
-                                <h4 className="font-semibold text-white mb-4">Connect With Me</h4>
+                            <div className="mt-8 border-t border-white/10 pt-8">
+                                <h4 className="font-semibold text-white mb-4">Find Me Online</h4>
                                 <div className="flex gap-4">
                                     {footerLinks.map((link) => (
                                         <a
@@ -101,9 +71,9 @@ export const ContactSection = ({ id }: { id: string }) => {
                                             href={link.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                                            className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:scale-110 hover:bg-emerald-300 hover:text-gray-950"
                                         >
-                                            <i className={`${link.title === 'Twitter' ? 'fab fa-twitter' : link.title === 'Github' ? 'fab fa-github' : 'fab fa-linkedin'} text-white`}></i>
+                                            <i className={`${link.title === "Twitter" ? "fab fa-twitter" : link.title === "Github" ? "fab fa-github" : "fab fa-linkedin"} text-lg`}></i>
                                         </a>
                                     ))}
                                 </div>
@@ -111,103 +81,99 @@ export const ContactSection = ({ id }: { id: string }) => {
                         </Card>
                     </motion.div>
 
-                    {/* Contact Form */}
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        viewport={{ once: true }}
+                        variants={fadeRight}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewport}
+                        transition={{ ...transition, delay: 0.08 }}
                     >
                         <Card className="p-8 md:p-10">
-                            <h3 className="font-serif text-2xl md:text-3xl text-white mb-8">
-                                Send Message
-                            </h3>
-                            
-                            <form className="space-y-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <h3 className="font-serif text-2xl md:text-3xl text-white mb-4">Send Message</h3>
+                            <p className="mb-8 text-white/60">Use the form for project briefs, collaboration ideas, or role discussions.</p>
+
+                            <form
+                                className="space-y-6"
+                                onSubmit={(event) => {
+                                    event.preventDefault();
+                                    setIsSubmitted(true);
+                                }}
+                            >
+                                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                                     <div>
-                                        <label className="block text-white font-medium mb-2">Name</label>
-                                        <input
-                                            type="text"
-                                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-emerald-300 transition-colors"
-                                            placeholder="Your Name"
-                                            required
-                                        />
+                                        <label className="mb-2 block font-medium text-white">Name</label>
+                                        <input type="text" className="focus-ring w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50" placeholder="Your Name" required />
                                     </div>
                                     <div>
-                                        <label className="block text-white font-medium mb-2">Email</label>
-                                        <input
-                                            type="email"
-                                            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-emerald-300 transition-colors"
-                                            placeholder="your.email@example.com"
-                                            required
-                                        />
+                                        <label className="mb-2 block font-medium text-white">Email</label>
+                                        <input type="email" className="focus-ring w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50" placeholder="your.email@example.com" required />
                                     </div>
                                 </div>
-                                
+
                                 <div>
-                                    <label className="block text-white font-medium mb-2">Subject</label>
-                                    <input
-                                        type="text"
-                                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-emerald-300 transition-colors"
-                                        placeholder="Project Inquiry / Collaboration"
-                                        required
-                                    />
+                                    <label className="mb-2 block font-medium text-white">Subject</label>
+                                    <input type="text" className="focus-ring w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50" placeholder="Project Inquiry / Collaboration" required />
                                 </div>
-                                
+
                                 <div>
-                                    <label className="block text-white font-medium mb-2">Message</label>
-                                    <textarea
-                                        rows={6}
-                                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-emerald-300 transition-colors resize-none"
-                                        placeholder="Tell me about your project, timeline, and any specific requirements..."
-                                        required
-                                    ></textarea>
+                                    <label className="mb-2 block font-medium text-white">Message</label>
+                                    <textarea rows={6} className="focus-ring w-full resize-none rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50" placeholder="Tell me about your project, timeline, and specific requirements..." required></textarea>
                                 </div>
-                                
+
                                 <button
                                     type="submit"
-                                    className="w-full bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-950 px-6 py-3 rounded-lg font-semibold hover:from-emerald-200 hover:to-sky-300 transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/30 relative overflow-hidden group"
+                                    className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-emerald-300 to-sky-400 px-6 py-3 font-semibold text-gray-950 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg hover:shadow-emerald-300/25"
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/0 to-white/0 group-hover:from-white/10 group-hover:via-white/20 group-hover:to-white/10 transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/0 to-white/0 opacity-0 transition-all duration-500 group-hover:from-white/10 group-hover:via-white/20 group-hover:to-white/10 group-hover:opacity-100"></div>
                                     <span className="relative z-10">Send Message</span>
-                                    <ArrowUpRightIcon className="size-4 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                                    <ArrowUpRightIcon className="relative z-10 size-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                                 </button>
+
+                                {isSubmitted && (
+                                    <motion.p
+                                        variants={fadeUp}
+                                        initial="hidden"
+                                        animate="visible"
+                                        transition={{ duration: 0.3 }}
+                                        className="rounded-lg border border-emerald-300/20 bg-emerald-300/10 px-4 py-3 text-sm text-emerald-200"
+                                    >
+                                        Form feedback is active. To send real emails, connect this form to an API route or email service.
+                                    </motion.p>
+                                )}
                             </form>
                         </Card>
                     </motion.div>
                 </div>
 
-                {/* Call to Action */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    viewport={{ once: true }}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewport}
+                    transition={{ ...transition, delay: 0.16 }}
                     className="mt-16"
                 >
-                    <div className="rounded-3xl bg-gradient-to-r from-emerald-300 to-sky-400 text-gray-950 py-8 px-10 text-center relative overflow-clip">
-                    <div
-                        className="absolute inset-0 -z-10 opacity-5"
-                        style={{
-                            backgroundImage: `url(${grainImage.src})`,
-                        }}></div>
-                        <h3 className="font-serif text-2xl md:text-3xl mb-4">
-                            Ready to Start Your Project?
-                        </h3>
-                                                    <p className="text-lg mb-6 max-w-2xl mx-auto">
-                                Let&apos;s discuss your ideas and turn them into reality. I&apos;m excited to collaborate on your next project!
-                            </p>
-                        <a href={`mailto:${email}`}>
-                            <button className="bg-gray-900 text-white inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-300/30 relative overflow-hidden group">
-                                <div className="absolute inset-0 bg-gradient-to-r from-emerald-300/0 via-emerald-300/0 to-emerald-300/0 group-hover:from-emerald-300/10 group-hover:via-emerald-300/20 group-hover:to-emerald-300/10 transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-                                <span className="relative z-10">Get Started Today</span>
-                                <ArrowUpRightIcon className="size-4 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                            </button>
+                    <div className="relative overflow-clip rounded-3xl bg-gradient-to-r from-emerald-300 to-sky-400 px-10 py-8 text-center text-gray-950">
+                        <div
+                            className="absolute inset-0 -z-10 opacity-5"
+                            style={{
+                                backgroundImage: `url(${grainImage.src})`,
+                            }}
+                        ></div>
+                        <h3 className="font-serif text-2xl md:text-3xl mb-4">Ready to Start Your Project?</h3>
+                        <p className="mx-auto mb-6 max-w-2xl text-lg">
+                            Let&apos;s discuss your ideas and turn them into reality. I&apos;m ready to collaborate on your next build.
+                        </p>
+                        <a
+                            href={`mailto:${email}`}
+                            className="group inline-flex items-center gap-2 rounded-xl bg-gray-900 px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-gray-800"
+                        >
+                            <span>Get Started Today</span>
+                            <ArrowUpRightIcon className="size-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                         </a>
                     </div>
                 </motion.div>
-                </div>
-            </section>
+            </div>
+        </section>
     );
 };

@@ -4,6 +4,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { certifications } from "../../profile.config";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { fadeUp, staggerContainer, transition, viewport } from "@/lib/motion";
 
 export const CertificationsSection = ({ id }: { id: string }) => {
     return (
@@ -15,18 +16,21 @@ export const CertificationsSection = ({ id }: { id: string }) => {
                     paragraph="Industry-recognized certifications that validate my skills and expertise across various technologies."
                 />
                 
-                <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <motion.div
+                    className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewport}
+                >
                     {certifications.map((cert, index) => (
                         <motion.div
                             key={cert.name}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
+                            variants={fadeUp}
+                            transition={{ ...transition, delay: index * 0.08 }}
                             whileHover={{ 
                                 y: -8,
-                                scale: 1.05,
-                                rotateY: 5
+                                scale: 1.02
                             }}
                             className="group cursor-pointer"
                         >
@@ -67,8 +71,8 @@ export const CertificationsSection = ({ id }: { id: string }) => {
                             </Card>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
-}; 
+};

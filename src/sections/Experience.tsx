@@ -5,6 +5,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { experienceData } from "../../profile.config";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { fadeUp, transition, viewport } from "@/lib/motion";
 
 export const ExperienceSection = ({ id }: { id: string }) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
