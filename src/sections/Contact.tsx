@@ -13,7 +13,7 @@ const contactItems = [
     { icon: "fas fa-envelope", label: "Email", value: email, href: `mailto:${email}` },
     { icon: "fas fa-map-marker-alt", label: "Location", value: "UP, India" },
     { icon: "fas fa-graduation-cap", label: "Education", value: "AKTU, Lucknow" },
-    { icon: "fas fa-phone", label: "Mobile", value: "+91 815080798" },
+    { icon: "fas fa-phone", label: "Mobile", value: "+91 8115080798" },
     { icon: "fas fa-globe", label: "Languages", value: "Sanskrit, Hindi, English" },
 ];
 
