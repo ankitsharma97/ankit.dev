@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -19,6 +19,44 @@ const contactItems = [
 
 export const ContactSection = ({ id }: { id: string }) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setIsLoading(true);
+        setErrorMessage("");
+        
+        const formData = new FormData(event.currentTarget);
+        // Access key provided for Web3Forms
+        formData.append("access_key", "3f418c7d-670f-47fa-a13b-49e84c7c6059");
+
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: json,
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                setIsSubmitted(true);
+                event.currentTarget.reset();
+            } else {
+                setErrorMessage(result.message || "Something went wrong.");
+            }
+        } catch (error) {
+            setErrorMessage("Failed to send message. Please try again later.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     return (
         <section className="py-20 md:py-14 lg:py-20 overflow-x-hidden" id={id}>
@@ -94,38 +132,36 @@ export const ContactSection = ({ id }: { id: string }) => {
 
                             <form
                                 className="space-y-6"
-                                onSubmit={(event) => {
-                                    event.preventDefault();
-                                    setIsSubmitted(true);
-                                }}
+                                onSubmit={handleSubmit}
                             >
                                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                                     <div>
                                         <label className="mb-2 block font-medium text-white">Name</label>
-                                        <input type="text" className="focus-ring w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50" placeholder="Your Name" required />
+                                        <input type="text" name="name" className="focus-ring w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50" placeholder="Your Name" required />
                                     </div>
                                     <div>
                                         <label className="mb-2 block font-medium text-white">Email</label>
-                                        <input type="email" className="focus-ring w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50" placeholder="your.email@example.com" required />
+                                        <input type="email" name="email" className="focus-ring w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50" placeholder="your.email@example.com" required />
                                     </div>
                                 </div>
 
                                 <div>
                                     <label className="mb-2 block font-medium text-white">Subject</label>
-                                    <input type="text" className="focus-ring w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50" placeholder="Project Inquiry / Collaboration" required />
+                                    <input type="text" name="subject" className="focus-ring w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50" placeholder="Project Inquiry / Collaboration" required />
                                 </div>
 
                                 <div>
                                     <label className="mb-2 block font-medium text-white">Message</label>
-                                    <textarea rows={6} className="focus-ring w-full resize-none rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50" placeholder="Tell me about your project, timeline, and specific requirements..." required></textarea>
+                                    <textarea name="message" rows={6} className="focus-ring w-full resize-none rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50" placeholder="Tell me about your project, timeline, and specific requirements..." required></textarea>
                                 </div>
 
                                 <button
                                     type="submit"
-                                    className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-emerald-300 to-sky-400 px-6 py-3 font-semibold text-gray-950 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg hover:shadow-emerald-300/25"
+                                    disabled={isLoading}
+                                    className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg bg-gradient-to-r from-emerald-300 to-sky-400 px-6 py-3 font-semibold text-gray-950 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg hover:shadow-emerald-300/25 disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/0 to-white/0 opacity-0 transition-all duration-500 group-hover:from-white/10 group-hover:via-white/20 group-hover:to-white/10 group-hover:opacity-100"></div>
-                                    <span className="relative z-10">Send Message</span>
+                                    <span className="relative z-10">{isLoading ? "Sending..." : "Send Message"}</span>
                                     <ArrowUpRightIcon className="relative z-10 size-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                                 </button>
 
@@ -137,7 +173,18 @@ export const ContactSection = ({ id }: { id: string }) => {
                                         transition={{ duration: 0.3 }}
                                         className="rounded-lg border border-emerald-300/20 bg-emerald-300/10 px-4 py-3 text-sm text-emerald-200"
                                     >
-                                        Form feedback is active. To send real emails, connect this form to an API route or email service.
+                                        Message sent successfully! I'll get back to you soon.
+                                    </motion.p>
+                                )}
+                                {errorMessage && (
+                                    <motion.p
+                                        variants={fadeUp}
+                                        initial="hidden"
+                                        animate="visible"
+                                        transition={{ duration: 0.3 }}
+                                        className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400"
+                                    >
+                                        {errorMessage}
                                     </motion.p>
                                 )}
                             </form>
