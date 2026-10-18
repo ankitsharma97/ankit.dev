@@ -12,7 +12,7 @@ import { email, footerLinks } from "../../profile.config";
 const contactItems = [
     { icon: "fas fa-envelope", label: "Email", value: email, href: `mailto:${email}` },
     { icon: "fas fa-map-marker-alt", label: "Location", value: "UP, India" },
-    { icon: "fas fa-graduation-cap", label: "Education", value: "AKTU, Lucknow" },
+    { icon: "fas fa-graduation-cap", label: "Education", value: "REC Azamgarh" },
     { icon: "fas fa-phone", label: "Mobile", value: "+91 8115080798" },
     { icon: "fas fa-globe", label: "Languages", value: "Sanskrit, Hindi, English" },
 ];
@@ -28,6 +28,11 @@ export const ContactSection = ({ id }: { id: string }) => {
         setErrorMessage("");
         
         const formData = new FormData(event.currentTarget);
+        // Honeypot: bots fill this hidden field, real users never see it
+        if (formData.get("botcheck")) {
+            setIsLoading(false);
+            return;
+        }
         // Access key provided for Web3Forms
         formData.append("access_key", "3f418c7d-670f-47fa-a13b-49e84c7c6059");
 
@@ -134,6 +139,7 @@ export const ContactSection = ({ id }: { id: string }) => {
                                 className="space-y-6"
                                 onSubmit={handleSubmit}
                             >
+                                <input type="text" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                                     <div>
                                         <label className="mb-2 block font-medium text-white">Name</label>
@@ -173,7 +179,7 @@ export const ContactSection = ({ id }: { id: string }) => {
                                         transition={{ duration: 0.3 }}
                                         className="rounded-lg border border-emerald-300/20 bg-emerald-300/10 px-4 py-3 text-sm text-emerald-200"
                                     >
-                                        Message sent successfully! I'll get back to you soon.
+                                        Message sent successfully! I&apos;ll get back to you soon.
                                     </motion.p>
                                 )}
                                 {errorMessage && (

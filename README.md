@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>ankitsharma97.github.io</h1>
-  <p><b>Personal Portfolio & Project Showcase</b></p>
+  <h1>Ankit Sharma - Portfolio</h1>
+  <p><b>Backend & AI Software Engineer</b></p>
   <p>
     <img src="https://avatars.githubusercontent.com/u/ankitsharma97?v=4" alt="Avatar" width="100" />
   </p>
@@ -17,7 +17,8 @@ This is a modern, responsive portfolio website built with **Next.js 14**, **Reac
 ## ✨ Features
 
 - Responsive design for desktop, tablet, and mobile
-- Project and toolbox showcase
+- Category-filtered project showcase with tech tags and metrics
+- SEO: Open Graph image, JSON-LD, sitemap and robots
 - Animated hero section (Framer Motion)
 - SVG icons and optimized images
 - Contact and About sections

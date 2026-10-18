@@ -11,75 +11,78 @@ import { fadeUp, staggerContainer, transition, viewport } from "@/lib/motion";
 export const ProjectsSection = ({ id }: { id: string }) => {
     const [activeFilter, setActiveFilter] = useState("All");
 
-    // Define project categories and their filters
-    const projectCategories = [
-        { 
-            name: "All", 
-            filter: () => portfolioProjects,
-            color: "from-emerald-300 to-sky-400"
-        },
-        { 
-            name: "Frontend", 
-            filter: () => portfolioProjects.filter(project => 
-                project.company.includes("PassGenerator") || 
-                project.company.includes("Currency") || 
-                project.company.includes("Atomic-saga") ||
-                project.company.includes("Facial Recognition System") ||
-                project.company.includes("Artistically Platform") ||
-                project.company.includes("Travel Norway") ||
-                project.company.includes("Huzzle") ||
-                project.company.includes("TeenHive")
-            ),
-            color: "from-blue-300 to-cyan-400"
-        },
-        { 
-            name: "Backend", 
-            filter: () => portfolioProjects.filter(project => 
-                project.company.includes("CodeSync Backend") ||
-                project.company.includes("Leave Management") ||
-                project.company.includes("DJ Chess") ||
-                project.company.includes("Stock Exchange") ||
-                project.company.includes("Code Interpreter")
-            ),
-            color: "from-purple-300 to-pink-400"
-        },
-        { 
-            name: "Full Stack", 
-            filter: () => portfolioProjects.filter(project => 
-                project.company.includes("Blog") || 
-                project.company.includes("College") || 
-                project.company.includes("E-commerce") ||
-                project.company.includes("ChatBot") ||
-                project.company.includes("Hospital") ||
-                project.company.includes("Social") ||
-                project.company.includes("Office") ||
-                project.company.includes("StudySphere") ||
-                project.company.includes("Code with Friend") ||
-                project.company.includes("Real-time Chatting")
-            ),
-            color: "from-green-300 to-emerald-400"
-        },
-        { 
-            name: "Machine Learning", 
-            filter: () => portfolioProjects.filter(project => 
-                project.company.includes("Heart") || 
-                project.company.includes("Skin")
-            ),
-            color: "from-purple-300 to-pink-400"
-        }
-    ];
+    const categoryStyles: Record<string, string> = {
+        All: "from-emerald-300 to-sky-400",
+        "Distributed Systems": "from-orange-300 to-amber-400",
+        "AI / ML": "from-purple-300 to-pink-400",
+        Backend: "from-violet-300 to-indigo-400",
+        "Full Stack": "from-green-300 to-emerald-400",
+        Frontend: "from-blue-300 to-cyan-400",
+        "Machine Learning": "from-fuchsia-300 to-rose-400",
+    };
+    const categoryNames = ["All", ...Array.from(new Set(portfolioProjects.map((project) => project.category)))];
+    const projectCategories = categoryNames.map((name) => ({
+        name,
+        color: categoryStyles[name] ?? categoryStyles.All,
+    }));
 
-    const filteredProjects = projectCategories.find(cat => cat.name === activeFilter)?.filter() || portfolioProjects;
+    const filteredProjects =
+        activeFilter === "All"
+            ? portfolioProjects
+            : portfolioProjects.filter((project) => project.category === activeFilter);
 
     return (
         <section className="pb-16 lg:py-24 overflow-x-hidden" id={id}>
             <div className="container">
                 <SectionHeader
-                    heading1="Engineering Excellence"
+                    heading1="Selected Work"
                     heading2="Software Engineering Projects"
-                    paragraph="Comprehensive software solutions demonstrating technical depth, scalability, and innovation across diverse domains."
+                    paragraph="Distributed systems, AI platforms and full-stack products, with real metrics where they exist."
                 />
                 
+                {/* Featured spotlight */}
+                {activeFilter === "All" && (
+                    <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+                        {portfolioProjects.filter((project) => project.featured).slice(0, 2).map((project) => (
+                            <motion.div
+                                key={`featured-${project.title}`}
+                                variants={fadeUp}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={viewport}
+                                transition={transition}
+                            >
+                                <Card className="h-full p-0">
+                                    <div className="relative">
+                                        <Image src={project.image} alt={project.title} className="h-56 w-full object-cover" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent"></div>
+                                        <span className="absolute left-5 top-5 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-950">
+                                            Featured
+                                        </span>
+                                    </div>
+                                    <div className="p-6 md:p-8">
+                                        <p className="text-xs uppercase tracking-[0.3em] text-emerald-300/80">{project.category}</p>
+                                        <h3 className="mt-2 font-serif text-2xl text-white md:text-3xl">{project.title}</h3>
+                                        <ul className="mt-4 space-y-2 text-white/70">
+                                            {project.results.map((result) => (
+                                                <li key={result.title} className="flex items-start gap-3">
+                                                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-emerald-300"></span>
+                                                    <span>{result.title}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <div className="mt-5 flex flex-wrap gap-2">
+                                            {project.tags?.map((tag) => (
+                                                <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/75">{tag}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </Card>
+                            </motion.div>
+                        ))}
+                    </div>
+                )}
+
                 {/* Filter Buttons */}
                 <div className="flex flex-wrap justify-center gap-3 mt-12 mb-16">
                     {projectCategories.map((category) => (
@@ -153,6 +156,13 @@ export const ProjectsSection = ({ id }: { id: string }) => {
                                     </div>
                                     
                                     <div className="flex-1">
+                                        {project.tags && (
+                                            <div className="mb-4 flex flex-wrap gap-1.5">
+                                                {project.tags.map((tag) => (
+                                                    <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-xs text-white/70">{tag}</span>
+                                                ))}
+                                            </div>
+                                        )}
                                         <ul className="space-y-2 mb-6">
                                             {project.results.map((result, idx) => (
                                                 <li key={idx} className="flex items-start gap-2 text-white/70 text-sm group-hover:text-white/80 transition-colors duration-300">
@@ -193,7 +203,7 @@ export const ProjectsSection = ({ id }: { id: string }) => {
                                                     </span>
                                                 </a>
                                             </div>
-                                        ) : (
+                                        ) : !(project.liveLink || project.sourceLink) ? null : (
                                             /* Single button layout when only one link is available */
                                             <a 
                                                 href={project.liveLink || project.sourceLink} 

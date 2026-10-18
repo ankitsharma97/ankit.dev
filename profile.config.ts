@@ -71,6 +71,16 @@ import foxGlobalImage from "@/assets/images/fox-global.png";
 import foxGlobalImageFS from "@/assets/images/fox-global-fs.png";
 import cruvImage from "@/assets/images/cruv.png";
 import sotImage from "@/assets/images/sot.png";
+import tcsImage from "@/assets/images/tcs.png";
+
+import seamasterImage from "@/assets/images/seamaster-ai.png";
+import distrishopImage from "@/assets/images/distrishop.png";
+import asyncflowImage from "@/assets/images/asyncflow.png";
+import indexgoImage from "@/assets/images/indexgo.png";
+import localbaseImage from "@/assets/images/localbase.png";
+import fileEncryptionImage from "@/assets/images/go-file-encryption.png";
+import pokemonCliImage from "@/assets/images/pokemon-cli.png";
+import studyAssistantImage from "@/assets/images/study-assistant.png";
 
 const CONFIG = {
     email: "ankit972125@gmail.com",
@@ -236,7 +246,146 @@ const CONFIG = {
     ],
     portfolioProjects: [
         {
+            company: "SeaMaster-AI",
+            year: "2025",
+            title: "AI-Powered Information Retrieval Platform",
+            category: "AI / ML",
+            featured: true,
+            tags: ["Python", "Flask", "Next.js", "RAG", "Pinecone", "Redis", "GuardrailsAI"],
+            results: [
+                { title: "Production RAG system handling 10,000+ queries/day with <200ms retrieval latency" },
+                { title: "Semantic search on Pinecone with custom embeddings, improving answer relevance by 75%" },
+                { title: "60% higher LLM throughput via Redis caching, prompt optimization and multi-LLM (GPT-4, Claude, Llama) failover" },
+                { title: "GuardrailsAI validation cut hallucinations and invalid outputs by 85%" },
+            ],
+            image: seamasterImage,
+        },
+        {
+            company: "DistriShop",
+            year: "2025",
+            title: "Distributed E-commerce Microservices Platform",
+            category: "Distributed Systems",
+            featured: true,
+            tags: ["Go", "gRPC", "GraphQL", "Docker", "Nginx", "MLflow"],
+            results: [
+                { title: "Isolated user, product and order services in Go communicating over gRPC (HTTP/2)" },
+                { title: "Unified GraphQL API gateway with type-safe resolvers" },
+                { title: "Service discovery, health checks, Nginx load balancing and graceful shutdowns" },
+                { title: "Recommendation engine and A/B testing framework with MLflow monitoring" },
+            ],
+            image: distrishopImage,
+        },
+        {
+            company: "AsyncFlow",
+            year: "2025",
+            title: "Event-Driven Kafka Microservices",
+            category: "Distributed Systems",
+            featured: true,
+            tags: ["Go", "Kafka", "Zookeeper", "Docker", "Prometheus"],
+            results: [
+                { title: "Processed 1000+ messages/second with Go producers and consumers" },
+                { title: "Retries, dead-letter queues, idempotent handling and consumer rebalancing" },
+                { title: "Dockerized Kafka cluster with structured logging and Prometheus observability" },
+            ],
+            image: asyncflowImage,
+        },
+        {
+            company: "Atomic-saga",
+            year: "2024",
+            title: "Distributed Transaction Management Library",
+            category: "Distributed Systems",
+            featured: true,
+            tags: ["TypeScript", "SAGA", "Outbox Pattern", "npm", "Open Source"],
+            results: [
+                { title: "Published TypeScript library with 500+ weekly downloads on npm" },
+                { title: "SAGA orchestration with compensating transactions and rollback strategies" },
+                { title: "Transactional outbox pattern, idempotent API handling and structured logging" },
+            ],
+            liveLink: "https://www.npmjs.com/package/atomic-saga/",
+            sourceLink: "https://github.com/ankitsharma97/atomic-saga",
+            image: profileCardsGeneratorPage,
+        },
+        {
+            company: "Code with Friend",
+            year: "2024",
+            title: "Real-Time Collaborative Coding Platform",
+            category: "Full Stack",
+            featured: true,
+            tags: ["React", "Socket.io", "Django Channels", "Redis", "AWS EC2", "Nginx"],
+            results: [
+                { title: "Supports 20+ concurrent users with sub-100ms synchronization latency" },
+                { title: "WebSocket sync, Monaco editor, live cursors, JWT auth and RBAC" },
+                { title: "Deployed on AWS EC2 with Nginx and horizontal scaling via Redis pub/sub" },
+            ],
+            liveLink: "https://code-sync-beta.vercel.app/",
+            sourceLink: "https://github.com/ankitsharma97/code-with-friend",
+            image: codeWithFriendImage,
+        },
+        {
+            company: "IndexGo",
+            year: "2025",
+            title: "High-Performance Indexing Engine",
+            category: "Distributed Systems",
+            tags: ["Go", "Algorithms", "Data Structures"],
+            results: [
+                { title: "Indexing and lookup utilities in Go built on custom data structures" },
+                { title: "Optimized memory usage and retrieval speed" },
+            ],
+            image: indexgoImage,
+        },
+        {
+            company: "LocalBase",
+            year: "2025",
+            title: "Lightweight Embedded Database",
+            category: "Distributed Systems",
+            tags: ["Go", "Storage Engine", "Indexing"],
+            results: [
+                { title: "File-based embedded storage for efficient local persistence" },
+                { title: "Optimized read/write paths, indexing and query processing" },
+            ],
+            image: localbaseImage,
+        },
+        {
+            company: "Pokemon-CLI",
+            year: "2025",
+            title: "High-Performance Go CLI Tool",
+            category: "Backend",
+            tags: ["Go", "Redis", "Concurrency", "TUI"],
+            results: [
+                { title: "Cut API calls by 80% with Redis caching and made responses 3x faster" },
+                { title: "Interactive terminal UI with search, filtering and pagination" },
+                { title: "90% test coverage with robust error handling" },
+            ],
+            image: pokemonCliImage,
+        },
+        {
+            company: "go-file-encryption",
+            year: "2025",
+            title: "Secure File Encryption Utility",
+            category: "Backend",
+            tags: ["Go", "Cryptography", "Security"],
+            results: [
+                { title: "File encryption and decryption using Go cryptographic libraries" },
+                { title: "Industry best practices for key handling and data protection" },
+            ],
+            image: fileEncryptionImage,
+        },
+        {
+            company: "Study Assistant",
+            year: "2024",
+            title: "AI Study Assistant (College Hackathon Winner)",
+            category: "AI / ML",
+            tags: ["RAG", "LLM Fine-tuning", "Python"],
+            results: [
+                { title: "Won the 2024 college hackathon" },
+                { title: "RAG pipeline combined with a fine-tuned language model" },
+            ],
+            image: studyAssistantImage,
+        },
+        {
             company: "Facial Recognition System",
+            category: "Machine Learning",
+            tags: ["TypeScript", "React", "TensorFlow.js", "OpenCV"],
             year: "2024",
             title: "AI-Powered Facial Recognition Platform",
             results: [
@@ -251,6 +400,8 @@ const CONFIG = {
         },
         {
             company: "Artistically Platform",
+            category: "Frontend",
+            tags: ["TypeScript", "React", "Tailwind"],
             year: "2024",
             title: "Creative Platform for Artists",
             results: [
@@ -265,6 +416,8 @@ const CONFIG = {
         },
         {
             company: "Travel Norway",
+            category: "Frontend",
+            tags: ["React", "Tailwind", "Maps"],
             year: "2024",
             title: "Norway Travel Website",
             results: [
@@ -279,6 +432,8 @@ const CONFIG = {
         },
         {
             company: "Huzzle",
+            category: "Full Stack",
+            tags: ["JavaScript", "Node.js", "Auth"],
             year: "2024",
             title: "Modern Web Application",
             results: [
@@ -293,6 +448,8 @@ const CONFIG = {
         },
         {
             company: "TeenHive",
+            category: "Frontend",
+            tags: ["React", "REST APIs"],
             year: "2024",
             title: "Social Platform for Teens",
             results: [
@@ -307,6 +464,8 @@ const CONFIG = {
         },
         {
             company: "CodeSync Backend",
+            category: "Backend",
+            tags: ["Python", "WebSockets", "Auth"],
             year: "2024",
             title: "Collaborative Coding Backend",
             results: [
@@ -320,6 +479,8 @@ const CONFIG = {
         },
         {
             company: "Leave Management",
+            category: "Backend",
+            tags: ["Python", "Django", "Admin"],
             year: "2024",
             title: "Employee Leave Management System",
             results: [
@@ -333,6 +494,8 @@ const CONFIG = {
         },
         {
             company: "DJ Chess",
+            category: "Backend",
+            tags: ["Django", "Channels", "WebSockets"],
             year: "2024",
             title: "Django Chess Game Platform",
             results: [
@@ -346,6 +509,8 @@ const CONFIG = {
         },
         {
             company: "Stock Exchange",
+            category: "Backend",
+            tags: ["Python", "Data Viz"],
             year: "2024",
             title: "Stock Market Analysis Platform",
             results: [
@@ -359,6 +524,8 @@ const CONFIG = {
         },
         {
             company: "Code Interpreter",
+            category: "Backend",
+            tags: ["Python", "AI", "Parsing"],
             year: "2024",
             title: "AI Code Analysis Tool",
             results: [
@@ -371,21 +538,9 @@ const CONFIG = {
             image: codeInterpreterImage,
         },
         {
-            company: "Atomic-saga",
-            year: "2024",
-            title: "Distributed Transaction Management Toolkit",
-            results: [
-                { title: "Production-ready TypeScript toolkit with 1000+ downloads on NPM" },
-                { title: "Saga orchestration pattern for microservices architecture" },
-                { title: "Idempotent API handling and compensating workflows" },
-                { title: "Transactional outbox pattern for data consistency" },
-            ],
-            liveLink: "https://www.npmjs.com/package/atomic-saga/",
-            sourceLink: "https://github.com/ankitsharma97/atomic-saga",
-            image: profileCardsGeneratorPage,
-        },
-        {
             company: "PassGenerator",
+            category: "Frontend",
+            tags: ["JavaScript", "Clipboard API"],
             year: "2024",
             title: "Secure Password Generator",
             results: [
@@ -399,6 +554,8 @@ const CONFIG = {
         },
         {
             company: "Currency Exchanger",
+            category: "Frontend",
+            tags: ["JavaScript", "REST APIs"],
             year: "2024",
             title: "Real-time Currency Converter",
             results: [
@@ -411,20 +568,9 @@ const CONFIG = {
             image: currencyExchangerImage,
         },
         {
-            company: "Code with Friend",
-            year: "2024",
-            title: "Collaborative Coding Platform",
-            results: [
-                { title: "Real-time collaborative coding" },
-                { title: "Room-based sharing system" },
-                { title: "Shared editor for simultaneous coding" },
-            ],
-            liveLink: "https://code-sync-beta.vercel.app/",
-            sourceLink: "https://github.com/ankitsharma97/code-with-friend",
-            image: codeWithFriendImage,
-        },
-        {
             company: "College Management System",
+            category: "Full Stack",
+            tags: ["Django", "PostgreSQL"],
             year: "2024",
             title: "Comprehensive Management System",
             results: [
@@ -438,6 +584,8 @@ const CONFIG = {
         },
         {
             company: "Real-time Chatting",
+            category: "Full Stack",
+            tags: ["Django Channels", "WebSockets"],
             year: "2024",
             title: "Real-time Chat Application",
             results: [
@@ -451,6 +599,8 @@ const CONFIG = {
         },
         {
             company: "Social Media Platform",
+            category: "Full Stack",
+            tags: ["Django", "REST APIs"],
             year: "2024",
             title: "Modern Social Network",
             results: [
@@ -464,6 +614,8 @@ const CONFIG = {
         },
         {
             company: "Blog Application",
+            category: "Full Stack",
+            tags: ["Django", "Tailwind"],
             year: "2024",
             title: "Modern Blog Platform",
             results: [
@@ -477,6 +629,8 @@ const CONFIG = {
         },
         {
             company: "E-commerce Platform",
+            category: "Full Stack",
+            tags: ["Django", "Payments"],
             year: "2024",
             title: "Full-featured E-commerce Site",
             results: [
@@ -490,6 +644,8 @@ const CONFIG = {
         },
         {
             company: "ChatBot",
+            category: "Full Stack",
+            tags: ["Django", "OpenAI API"],
             year: "2024",
             title: "AI-Powered ChatBot",
             results: [
@@ -503,6 +659,8 @@ const CONFIG = {
         },
         {
             company: "Hospital Management System",
+            category: "Backend",
+            tags: ["Django", "DRF", "PostgreSQL", "RBAC"],
             year: "2024",
             title: "Healthcare Management Platform",
             results: [
@@ -516,6 +674,8 @@ const CONFIG = {
         },
         {
             company: "Office Employee Management",
+            category: "Full Stack",
+            tags: ["Django", "PostgreSQL"],
             year: "2024",
             title: "Employee Management System",
             results: [
@@ -529,6 +689,8 @@ const CONFIG = {
         },
         {
             company: "Heart Disease Prediction",
+            category: "Machine Learning",
+            tags: ["scikit-learn", "Django"],
             year: "2024",
             title: "ML-based Health Prediction",
             results: [
@@ -542,6 +704,8 @@ const CONFIG = {
         },
         {
             company: "Skin Cancer Prediction",
+            category: "Machine Learning",
+            tags: ["FastAPI", "Deep Learning"],
             year: "2024",
             title: "AI-Powered Medical Detection",
             results: [
@@ -567,9 +731,9 @@ const CONFIG = {
             avatar: shanzilAvatar,
         },
         {
-            name: "AKTU, Lucknow",
+            name: "Rajkiya Engineering College, Azamgarh",
             position: "Information Technology Student",
-            text: "Currently pursuing Bachelor of Technology in Information Technology (2026). I have comprehensive knowledge of software engineering principles and programming languages, continuously learning new technologies and methodologies. I aspire to be part of teams that engineer solutions to make positive changes in society.",
+            text: "B.Tech in Information Technology (2022 - 2026), 8.0 CGPA. I have comprehensive knowledge of software engineering principles and programming languages, continuously learning new technologies and methodologies. I aspire to be part of teams that engineer solutions to make positive changes in society.",
             avatar: memojiAvatar3,
         },
     ],
@@ -577,10 +741,16 @@ const CONFIG = {
         "Solved 1000+ algorithmic problems across LeetCode, GeeksforGeeks, and HackerRank",
         "Attained 5★ rating in C++ on HackerRank (Verified)",
         "Successfully architected and delivered 25+ full-stack software applications with live deployments",
-        "Published 1 NPM package with 1000+ downloads",
+        "Published open-source npm library (atomic-saga) with 500+ weekly downloads",
         "25+ active GitHub repositories with 15+ live deployments",
         "Reduced application downtime by 20% through systematic debugging and optimization",
         "Improved user engagement metrics by 15% through software engineering best practices"
+    ],
+    openSource: [
+        { project: "LangChain", detail: "Documentation improvements and bug fixes for vector store integrations" },
+        { project: "React-Redux", detail: "Pull request optimizing middleware performance in production builds" },
+        { project: "FastAPI", detail: "Examples for WebSocket integration patterns and async database operations" },
+        { project: "atomic-saga", detail: "Authored and maintain an npm library with 500+ weekly downloads" },
     ],
     certifications: [
         {
@@ -614,9 +784,24 @@ const CONFIG = {
     ],
     experienceData: [
         {
+            company: "Tata Consultancy Services (TCS)",
+            position: "Systems Engineer",
+            duration: "June 2026 - Present",
+            location: "Mumbai",
+            certificate: "",
+            description: "Developing and maintaining enterprise applications with Java and Spring Boot in an Agile team, turning business requirements into reliable features.",
+            achievements: [
+                "Building and maintaining enterprise applications using Java, Spring Boot, SQL and Git",
+                "Working with teammates to understand business requirements, resolve application issues and ship features",
+                "Following Agile methodology, coding standards and best practices to deliver high-quality software"
+            ],
+            technologies: ["Java", "Spring Boot", "SQL", "Git"],
+            image: tcsImage
+        },
+        {
             company: "ShortOrbit Technologies Pvt Ltd",
             position: "Python Developer Intern",
-            duration: "January 2026 - Present",
+            duration: "January 2026 - June 2026",
             location: "Remote",
             certificate: "",
             description: "Maintaining and improving backend systems while contributing to frontend development. Focused on bug fixing, performance optimization, and system stability.",
@@ -666,7 +851,7 @@ const CONFIG = {
         },
         {
             company: "Meteorite Labs",
-            position: "Junior Software Engineer",
+            position: "Software Engineer Intern (AI/ML)",
             duration: "August 2025 - Present",
             location: "Remote",
             certificate: "",
@@ -815,100 +1000,89 @@ const CONFIG = {
     ],
     skillsData: [
         {
-            category: "Programming Languages",
+            category: "Languages",
             skills: [
-                { name: "JavaScript", proficiency: 85, icon: "fab fa-js-square" },
-                { name: "TypeScript", proficiency: 80, icon: "fab fa-js-square" },
+                { name: "Go", proficiency: 80, icon: "fas fa-bolt" },
                 { name: "Python", proficiency: 90, icon: "fab fa-python" },
-                { name: "C/C++", proficiency: 85, icon: "fa-solid fa-code" },
+                { name: "TypeScript", proficiency: 80, icon: "fab fa-js-square" },
+                { name: "JavaScript", proficiency: 85, icon: "fab fa-js-square" },
                 { name: "Java", proficiency: 75, icon: "fab fa-java" },
+                { name: "C/C++", proficiency: 85, icon: "fa-solid fa-code" },
                 { name: "SQL", proficiency: 80, icon: "fas fa-database" }
             ]
         },
         {
-            category: "Frontend Development",
+            category: "Distributed Systems",
             skills: [
-                { name: "React.js", proficiency: 85, icon: "fab fa-react" },
-                { name: "Next.js", proficiency: 80, icon: "fab fa-react" },
-                { name: "HTML5/CSS3", proficiency: 90, icon: "fab fa-html5" },
-                { name: "Tailwind CSS", proficiency: 85, icon: "fas fa-palette" },
-                { name: "Material-UI", proficiency: 75, icon: "fab fa-react" },
-                { name: "Bootstrap", proficiency: 80, icon: "fab fa-bootstrap" },
-                { name: "Redux", proficiency: 75, icon: "fab fa-react" }
+                { name: "Kafka", proficiency: 75, icon: "fas fa-stream" },
+                { name: "gRPC", proficiency: 75, icon: "fas fa-network-wired" },
+                { name: "GraphQL", proficiency: 70, icon: "fas fa-project-diagram" },
+                { name: "Microservices", proficiency: 80, icon: "fas fa-cubes" },
+                { name: "SAGA Pattern", proficiency: 80, icon: "fas fa-random" },
+                { name: "Event-Driven Design", proficiency: 80, icon: "fas fa-bolt" },
+                { name: "WebSockets", proficiency: 80, icon: "fas fa-broadcast-tower" }
             ]
         },
         {
-            category: "Backend Development",
+            category: "AI / LLM",
             skills: [
-                { name: "Django", proficiency: 85, icon: "fab fa-python" },
-                { name: "Django REST Framework", proficiency: 80, icon: "fas fa-server" },
-                { name: "FastAPI", proficiency: 75, icon: "fab fa-python" },
+                { name: "RAG Architectures", proficiency: 80, icon: "fas fa-robot" },
+                { name: "OpenAI / Claude APIs", proficiency: 75, icon: "fas fa-robot" },
+                { name: "Pinecone & FAISS", proficiency: 70, icon: "fas fa-search" },
+                { name: "LangChain", proficiency: 70, icon: "fas fa-link" },
+                { name: "GuardrailsAI", proficiency: 70, icon: "fas fa-shield-alt" },
+                { name: "PyTorch", proficiency: 65, icon: "fas fa-brain" }
+            ]
+        },
+        {
+            category: "Backend",
+            skills: [
+                { name: "Django & DRF", proficiency: 85, icon: "fab fa-python" },
+                { name: "FastAPI", proficiency: 80, icon: "fab fa-python" },
+                { name: "Flask", proficiency: 80, icon: "fab fa-python" },
+                { name: "Spring Boot", proficiency: 70, icon: "fab fa-java" },
                 { name: "Node.js", proficiency: 75, icon: "fab fa-node-js" },
-                { name: "Express.js", proficiency: 70, icon: "fab fa-node-js" },
-                { name: "Socket.io", proficiency: 70, icon: "fas fa-broadcast-tower" },
-                { name: "Celery", proficiency: 65, icon: "fab fa-python" }
+                { name: "Celery", proficiency: 65, icon: "fas fa-tasks" }
             ]
         },
         {
             category: "Databases",
             skills: [
                 { name: "PostgreSQL", proficiency: 80, icon: "fas fa-database" },
+                { name: "Redis", proficiency: 75, icon: "fas fa-memory" },
                 { name: "MongoDB", proficiency: 75, icon: "fas fa-leaf" },
                 { name: "MySQL", proficiency: 75, icon: "fas fa-database" },
-                { name: "SQLite", proficiency: 80, icon: "fas fa-database" },
-                { name: "Redis", proficiency: 70, icon: "fas fa-memory" }
+                { name: "Elasticsearch", proficiency: 60, icon: "fas fa-search" }
             ]
         },
         {
-            category: "Data Structures & Algorithms",
+            category: "Cloud & DevOps",
             skills: [
-                { name: "DSA", proficiency: 90, icon: "fas fa-brain" },
-                { name: "Problem Solving", proficiency: 85, icon: "fas fa-puzzle-piece" },
-                { name: "Algorithm Design", proficiency: 80, icon: "fas fa-cogs" },
-                { name: "Time Complexity", proficiency: 85, icon: "fas fa-clock" },
-                { name: "Space Optimization", proficiency: 80, icon: "fas fa-compress-alt" }
+                { name: "Docker", proficiency: 75, icon: "fab fa-docker" },
+                { name: "AWS (EC2, S3, RDS)", proficiency: 65, icon: "fab fa-aws" },
+                { name: "Nginx", proficiency: 70, icon: "fas fa-server" },
+                { name: "GitHub Actions / CI-CD", proficiency: 70, icon: "fab fa-github" },
+                { name: "Prometheus", proficiency: 60, icon: "fas fa-chart-line" },
+                { name: "Linux", proficiency: 75, icon: "fab fa-linux" }
             ]
         },
         {
-            category: "AI/ML",
+            category: "Frontend",
             skills: [
-                { name: "OpenAI API", proficiency: 75, icon: "fas fa-robot" },
-                { name: "LangChain", proficiency: 70, icon: "fas fa-link" },
-                { name: "Vector Databases", proficiency: 65, icon: "fas fa-database" },
-                { name: "Pinecone", proficiency: 70, icon: "fas fa-search" }
+                { name: "React & Next.js", proficiency: 85, icon: "fab fa-react" },
+                { name: "Redux Toolkit", proficiency: 75, icon: "fab fa-react" },
+                { name: "Tailwind CSS", proficiency: 85, icon: "fas fa-palette" },
+                { name: "Angular", proficiency: 60, icon: "fab fa-angular" },
+                { name: "HTML5 / CSS3", proficiency: 90, icon: "fab fa-html5" }
             ]
         },
         {
-            category: "DevOps & Tools",
+            category: "Computer Science",
             skills: [
-                { name: "Git", proficiency: 85, icon: "fab fa-git-alt" },
-                { name: "Docker", proficiency: 70, icon: "fab fa-docker" },
-                { name: "AWS", proficiency: 65, icon: "fab fa-aws" },
-                { name: "Vercel", proficiency: 80, icon: "fas fa-cloud" },
-                { name: "Hetzner", proficiency: 70, icon: "fas fa-server" },
-                { name: "Heroku", proficiency: 75, icon: "fas fa-rocket" },
-                { name: "Jira", proficiency: 75, icon: "fab fa-jira" },
-                { name: "Postman", proficiency: 80, icon: "fas fa-paper-plane" },
-                { name: "Trello", proficiency: 70, icon: "fas fa-tasks" }
-            ]
-        },
-        {
-            category: "Cloud & Deployment",
-            skills: [
-                { name: "Vercel", proficiency: 75, icon: "fas fa-cloud" },
-                { name: "Render", proficiency: 70, icon: "fas fa-server" },
-                { name: "AWS S3", proficiency: 60, icon: "fab fa-aws" },
-                { name: "Web Deployment", proficiency: 80, icon: "fas fa-rocket" }
-            ]
-        },
-        {
-            category: "Soft Skills",
-            skills: [
-                { name: "Team Collaboration", proficiency: 85, icon: "fas fa-users" },
-                { name: "Problem Solving", proficiency: 90, icon: "fas fa-lightbulb" },
-                { name: "Communication", proficiency: 80, icon: "fas fa-comments" },
-                { name: "Time Management", proficiency: 75, icon: "fas fa-calendar-alt" },
-                { name: "Continuous Learning", proficiency: 90, icon: "fas fa-graduation-cap" }
+                { name: "Data Structures & Algorithms", proficiency: 90, icon: "fas fa-brain" },
+                { name: "System Design", proficiency: 75, icon: "fas fa-sitemap" },
+                { name: "Operating Systems", proficiency: 75, icon: "fas fa-microchip" },
+                { name: "Computer Networks", proficiency: 75, icon: "fas fa-network-wired" }
             ]
         }
     ],
@@ -925,3 +1099,4 @@ export const profilesData = CONFIG.profilesData;
 export const skillsData = CONFIG.skillsData;
 export const achievements = CONFIG.achievements;
 export const certifications = CONFIG.certifications;
+export const openSource = CONFIG.openSource;

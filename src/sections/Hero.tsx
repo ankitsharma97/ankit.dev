@@ -119,11 +119,11 @@ export const HeroSection = ({ id }: { id: string }) => {
                 </div>
                 <div className="max-w-lg mx-auto">
                     <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide">
-                        Software Engineer & Technical Innovator
+                        Backend & AI Software Engineer
                     </h1>
                     <p className="mt-4 text-center font-light text-white/80 tracking-wide md:text-lg">
                         I design and build scalable software solutions, architect robust systems, and drive technical innovation.
-                        Currently pursuing BTech in Information Technology (2026).
+                        Systems Engineer at TCS.
                     </p>
                 </div>
                 <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">

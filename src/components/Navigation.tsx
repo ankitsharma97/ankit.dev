@@ -38,7 +38,7 @@ export const Navigation = () => {
                     </div>
                     <div>
                         <span className="font-serif text-lg font-bold text-white">Ankit Sharma</span>
-                        <p className="text-xs text-white/60">Builds products, not just pages</p>
+                        <p className="text-xs text-white/60">Backend & AI Software Engineer</p>
                     </div>
                 </div>
             </motion.div>

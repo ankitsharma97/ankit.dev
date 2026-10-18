@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import heroImage from "@/assets/images/HERO.jpeg";
@@ -11,33 +10,18 @@ import SparkleIcon from "@/assets/icons/sparkle.svg";
 import { HeroOrbit } from "@/components/HeroOrbit";
 import { Card } from "@/components/Card";
 import { Navigation } from "@/components/Navigation";
-import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { fadeUp, staggerContainer, transition, viewport } from "@/lib/motion";
-import { experienceData, portfolioProjects, skillsData } from "../../profile.config";
+import { experienceData, openSource, portfolioProjects, skillsData } from "../../profile.config";
 
 const stats = [
-    { value: "25+", label: "Projects Shipped" },
-    { value: "40+", label: "Skills Applied" },
-    { value: "3", label: "Internships" },
-    { value: "18+", label: "Months Building" },
+    { value: "10k+", label: "RAG queries/day in production" },
+    { value: "<200ms", label: "Semantic search latency" },
+    { value: "500+", label: "Weekly npm downloads" },
+    { value: "600+", label: "LeetCode problems solved" },
 ];
 
 export default function Home() {
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 1400);
-
-        return () => clearTimeout(timer);
-    }, []);
-
-    if (isLoading) {
-        return <LoadingSpinner />;
-    }
-
-    const previewProjects = portfolioProjects.slice(0, 3);
+    const previewProjects = portfolioProjects.filter((project) => project.featured).slice(0, 3);
     const previewSkills = skillsData.slice(0, 3);
     const previewExperience = experienceData[0];
 
@@ -83,7 +67,7 @@ export default function Home() {
                     <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
                         <motion.div variants={fadeUp} transition={transition} className="mb-8 inline-flex items-center gap-3 rounded-full border border-emerald-300/20 bg-white/5 px-4 py-2 text-sm text-white/75 backdrop-blur">
                             <span className="inline-flex size-2.5 rounded-full bg-emerald-300 shadow-[0_0_16px_rgba(110,231,183,0.8)]"></span>
-                            Available for internships, freelance, and full-time roles
+                            Systems Engineer at TCS · Open to interesting opportunities
                         </motion.div>
 
                         <motion.div variants={fadeUp} transition={transition} className="relative mb-8">
@@ -100,14 +84,14 @@ export default function Home() {
                         </motion.div>
 
                         <motion.p variants={fadeUp} transition={transition} className="mb-4 uppercase tracking-[0.35em] text-emerald-300/80">
-                            Software Engineer • Problem Solver • Builder
+                            Backend • Distributed Systems • AI
                         </motion.p>
                         <motion.h1 variants={fadeUp} transition={transition} className="max-w-4xl font-serif text-4xl leading-tight md:text-6xl lg:text-7xl">
-                            Interfaces with motion,
-                            <span className="text-shimmer"> products with substance.</span>
+                            Backend & AI engineer building
+                            <span className="text-shimmer"> systems that scale.</span>
                         </motion.h1>
                         <motion.p variants={fadeUp} transition={transition} className="mt-6 max-w-2xl text-base text-white/70 md:text-xl">
-                            I design and build scalable software systems, polished frontends, and developer-friendly products with a focus on clarity, performance, and real user impact.
+                            RAG platforms serving 10k+ queries a day, Kafka pipelines processing 1000+ messages a second, and an open-source npm library. I build in Go, Python, TypeScript and Java.
                         </motion.p>
 
                         <motion.div variants={fadeUp} transition={transition} className="mt-10 flex flex-col items-center gap-4 md:flex-row">
@@ -125,6 +109,14 @@ export default function Home() {
                                 <span>Let&apos;s Connect</span>
                                 <span className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-1">→</span>
                             </Link>
+                            <a
+                                href="/resume.pdf"
+                                download
+                                className="inline-flex h-12 items-center gap-2 rounded-xl border border-emerald-300/40 px-6 font-semibold text-emerald-200 transition-all duration-300 hover:bg-emerald-300/10"
+                            >
+                                <span>Download Resume</span>
+                                <span aria-hidden>↓</span>
+                            </a>
                         </motion.div>
                     </div>
                 </motion.div>
@@ -153,7 +145,7 @@ export default function Home() {
                 <div className="container">
                     <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport} transition={transition} className="mb-12 text-center">
                         <p className="uppercase tracking-[0.35em] text-emerald-300/75">Selected Work</p>
-                        <h2 className="mt-4 font-serif text-3xl md:text-5xl">Featured projects with product thinking</h2>
+                        <h2 className="mt-4 font-serif text-3xl md:text-5xl">Featured projects built for scale</h2>
                         <div className="section-divider"></div>
                     </motion.div>
 
@@ -184,6 +176,11 @@ export default function Home() {
                                         <span>{project.year}</span>
                                     </div>
                                     <h3 className="font-serif text-2xl text-white">{project.title}</h3>
+                                    <div className="mt-3 flex flex-wrap gap-1.5">
+                                        {project.tags?.slice(0, 4).map((tag) => (
+                                            <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-xs text-white/70">{tag}</span>
+                                        ))}
+                                    </div>
                                     <ul className="mt-4 space-y-3 text-sm text-white/65">
                                         {project.results.slice(0, 3).map((result) => (
                                             <li key={result.title} className="flex items-start gap-3">
@@ -193,7 +190,7 @@ export default function Home() {
                                         ))}
                                     </ul>
                                     <Link href="/projects" className="mt-6 inline-flex items-center gap-2 font-semibold text-emerald-300">
-                                        See case studies
+                                        See all projects
                                         <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                                     </Link>
                                 </Card>
@@ -221,12 +218,11 @@ export default function Home() {
                                         className="rounded-2xl border border-white/10 bg-white/[0.03] p-5"
                                     >
                                         <h3 className="font-serif text-xl text-white">{category.category}</h3>
-                                        <div className="mt-4 space-y-3">
-                                            {category.skills.slice(0, 3).map((skill) => (
-                                                <div key={skill.name} className="flex items-center justify-between text-sm">
-                                                    <span className="text-white/75">{skill.name}</span>
-                                                    <span className="font-semibold text-emerald-300">{skill.proficiency}%</span>
-                                                </div>
+                                        <div className="mt-4 flex flex-wrap gap-2">
+                                            {category.skills.slice(0, 5).map((skill) => (
+                                                <span key={skill.name} className="rounded-full border border-emerald-300/20 bg-emerald-300/5 px-3 py-1 text-sm text-white/80">
+                                                    {skill.name}
+                                                </span>
                                             ))}
                                         </div>
                                     </motion.div>
@@ -268,6 +264,32 @@ export default function Home() {
                 </div>
             </section>
 
+            <section className="py-16">
+                <div className="container">
+                    <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport} transition={transition} className="mb-12 text-center">
+                        <p className="uppercase tracking-[0.35em] text-emerald-300/75">Open Source</p>
+                        <h2 className="mt-4 font-serif text-3xl md:text-5xl">Building in public</h2>
+                        <div className="section-divider"></div>
+                    </motion.div>
+                    <motion.div
+                        className="grid grid-cols-1 gap-6 md:grid-cols-2"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewport}
+                    >
+                        {openSource.map((item) => (
+                            <motion.div key={item.project} variants={fadeUp} transition={transition}>
+                                <Card className="h-full p-6">
+                                    <h3 className="font-serif text-2xl text-white">{item.project}</h3>
+                                    <p className="mt-3 text-white/70">{item.detail}</p>
+                                </Card>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
+            </section>
+
             <section className="pb-20 pt-8">
                 <motion.div
                     className="container"
@@ -281,9 +303,9 @@ export default function Home() {
                         <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto]">
                             <div>
                                 <p className="uppercase tracking-[0.3em] text-emerald-300/75">Next Move</p>
-                                <h2 className="mt-4 font-serif text-3xl md:text-5xl">Need a portfolio, product UI, or full-stack build that feels alive?</h2>
+                                <h2 className="mt-4 font-serif text-3xl md:text-5xl">Hiring for backend, AI or distributed systems work?</h2>
                                 <p className="mt-4 max-w-2xl text-white/70">
-                                    I can help shape the interface, engineer the interactions, and ship the system behind it.
+                                    I design reliable services, ship production AI features, and care about performance. Let&apos;s talk.
                                 </p>
                             </div>
                             <Link
