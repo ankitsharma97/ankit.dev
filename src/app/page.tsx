@@ -110,10 +110,10 @@ export default function Home() {
                                 <span className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-1">→</span>
                             </Link>
                             <a
-                                href="/resume.pdf"
+                                href="/Ankit_sharma.pdf"
                                 download
                                 className="inline-flex h-12 items-center gap-2 rounded-xl border border-emerald-300/40 px-6 font-semibold text-emerald-200 transition-all duration-300 hover:bg-emerald-300/10"
-                            >
+                            >   
                                 <span>Download Resume</span>
                                 <span aria-hidden>↓</span>
                             </a>
